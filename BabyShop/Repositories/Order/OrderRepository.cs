@@ -1,15 +1,17 @@
-﻿public class OrderRepository : IOrderRepository
+﻿using Microsoft.EntityFrameworkCore;
+
+public class OrderRepository : IOrderRepository
 {
     private readonly DbContext _context;
 
-    public OrderRepository(pDbContext context)
+    public OrderRepository(DbContext context)
     {
         _context = context;
     }
 
     public async Task AddAsync(Order order)
     {
-        await _context.Orders.AddAsync(order);
+        await _context..AddAsync(order);
         await _context.SaveChangesAsync();
     }
 
