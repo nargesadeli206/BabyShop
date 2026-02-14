@@ -1,3 +1,6 @@
 <Solution>
-  <Project Path="BabyShop/BabyShop.csproj" />
+  <Project Path="BabyShop.API/BabyShop.API.csproj" Id="7c9c270e-0265-48b3-83db-1167d0f927ef" />
+  <Project Path="BabyShop.Application/BabyShop.Application.csproj" Id="4ace7e79-2513-4cde-bc76-d06bd02f54a7" />
+  <Project Path="BabyShop.Core/BabyShop.Core.csproj" Id="e018c4ab-37a6-4cf2-97a9-47629c31a593" />
+  <Project Path="BabyShop.Infrastructure/BabyShop.Infrastructure.csproj" Id="be7648e9-63a6-4951-a05b-f97db132a6df" />
 </Solution>
