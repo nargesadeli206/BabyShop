@@ -11,53 +11,63 @@ public class Gender : IEquatable<Gender>
         DisplayName = displayName;
     }
 
-    public Gender(string? v)
+    /// <summary>
+    /// از مقدار DB: 1/2/3 یا Male/Female یا پسرانه/دخترانه
+    /// </summary>
+    public Gender(string? raw)
     {
-        this.v = v;
+        var g = FromAny(raw);
+        Value = g.Value;
+        DisplayName = g.DisplayName;
     }
 
     public static readonly Gender Boy = new Gender(1, "پسرانه");
     public static readonly Gender Girl = new Gender(2, "دخترانه");
     public static readonly Gender Unisex = new Gender(3, "یونیسکس");
-    private string? v;
 
-    public static Gender FromValue(int value)
+    public static Gender FromValue(int value) => value switch
     {
-        return value switch
+        1 => Boy,
+        2 => Girl,
+        3 => Unisex,
+        _ => throw new ArgumentException($"Invalid gender value: {value}")
+    };
+
+    public static Gender FromName(string displayName) => FromAny(displayName);
+
+    public static Gender FromAny(string? raw)
+    {
+        if (string.IsNullOrWhiteSpace(raw))
+            throw new ArgumentException("Gender value is empty");
+
+        var s = raw.Trim();
+
+        if (int.TryParse(s, out var n))
+            return FromValue(n);
+
+        return s.ToLowerInvariant() switch
         {
-            1 => Boy,
-            2 => Girl,
-            3 => Unisex,
-            _ => throw new ArgumentException($"Invalid gender value: {value}")
+            "male" or "boy" or "m" or "پسرانه" or "پسر" => Boy,
+            "female" or "girl" or "f" or "دخترانه" or "دختر" => Girl,
+            "unisex" or "u" or "یونیسکس" or "هر دو" => Unisex,
+            _ => throw new ArgumentException($"Invalid gender: {raw}")
         };
     }
 
-    public static Gender FromName(string displayName)
+    /// <summary>مقادیری که ممکن است در ستون Gender دیتابیس باشد.</summary>
+    public IReadOnlyList<string> DbValues => Value switch
     {
-        return displayName switch
-        {
-            "پسرانه" => Boy,
-            "دخترانه" => Girl,
-            "یونیسکس" => Unisex,
-            _ => throw new ArgumentException($"Invalid gender name: {displayName}")
-        };
-    }
+        1 => new[] { "1", "Male", "male", "Boy", "پسرانه" },
+        2 => new[] { "2", "Female", "female", "Girl", "دخترانه" },
+        3 => new[] { "3", "Unisex", "unisex", "یونیسکس" },
+        _ => new[] { DisplayName }
+    };
 
     public static IEnumerable<Gender> GetAll() => new[] { Boy, Girl, Unisex };
 
-    public bool Equals(Gender? other)
-    {
-        if (other is null) return false;
-        return Value == other.Value;
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return Equals(obj as Gender);
-    }
-
+    public bool Equals(Gender? other) => other is not null && Value == other.Value;
+    public override bool Equals(object? obj) => Equals(obj as Gender);
     public override int GetHashCode() => Value.GetHashCode();
-
     public override string ToString() => DisplayName;
 
     public static bool operator ==(Gender? left, Gender? right) => Equals(left, right);

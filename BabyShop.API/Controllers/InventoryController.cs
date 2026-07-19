@@ -1,10 +1,12 @@
 ﻿using BabyShop.Application.Dtos;
 using BabyShop.Application.Interfaces.Services;
 using BabyShop.Core.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BabyShop.API.Controllers;
 
+[Authorize(Policy = "ManagerOnly")]
 [ApiController]
 [Route("api/[controller]")]
 public class InventoryController : ControllerBase

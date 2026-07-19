@@ -50,7 +50,7 @@ public class PaymentService : IPaymentService
         if (order == null)
             throw new NotFoundException(nameof(Order), dto.OrderId);
 
-        // ✅ درست: استفاده از سازنده
+       
         var payment = new Payment(dto.OrderId, dto.Amount, dto.PaymentMethod);
 
         var createdPayment = await _paymentRepository.CreatePaymentAsync(payment);
@@ -67,11 +67,11 @@ public class PaymentService : IPaymentService
         if (payment == null)
             throw new NotFoundException(nameof(Payment), paymentId);
 
-        // ✅ درست: استفاده از متد Verify
+        
         payment.Verify(referenceNumber);
         await _paymentRepository.UpdateAsync(payment);
 
-        // به‌روزرسانی وضعیت سفارش
+        
         var order = await _orderRepository.GetByIdAsync(payment.OrderId);
         if (order != null)
         {

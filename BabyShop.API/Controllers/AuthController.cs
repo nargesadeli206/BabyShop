@@ -95,4 +95,37 @@ public class AuthController : ControllerBase
         var exists = await _authService.CheckPhoneExistsAsync(phoneNumber);
         return Ok(new ApiResponse<bool> { Success = true, Data = exists });
     }
+
+    [HttpPost("forgot-password")]
+    public async Task<ActionResult<ApiResponse<string>>> ForgotPassword([FromBody] ForgotPasswordDto dto)
+    {
+        var result = await _authService.ForgotPasswordAsync(dto);
+
+        if (!result.Success)
+            return BadRequest(new ApiResponse<object> { Success = false, Message = result.Message });
+
+        return Ok(new ApiResponse<string> { Success = true, Message = result.Message, Data = result.VerificationCode });
+    }
+
+    [HttpPost("verify-reset-code")]
+    public async Task<ActionResult<ApiResponse<bool>>> VerifyResetCode([FromBody] VerifyResetCodeDto dto)
+    {
+        var result = await _authService.VerifyResetCodeAsync(dto);
+
+        if (!result.Success)
+            return BadRequest(new ApiResponse<object> { Success = false, Message = result.Message });
+
+        return Ok(new ApiResponse<bool> { Success = true, Message = result.Message, Data = true });
+    }
+
+    [HttpPost("reset-password")]
+    public async Task<ActionResult<ApiResponse<bool>>> ResetPassword([FromBody] ResetPasswordDto dto)
+    {
+        var result = await _authService.ResetPasswordAsync(dto);
+
+        if (!result.Success)
+            return BadRequest(new ApiResponse<object> { Success = false, Message = result.Message });
+
+        return Ok(new ApiResponse<bool> { Success = true, Message = result.Message, Data = true });
+    }
 }

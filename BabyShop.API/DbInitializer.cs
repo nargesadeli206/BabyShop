@@ -13,10 +13,10 @@ public static class DbInitializer
         var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
 
-        // اجرای Migration ها
-        await context.Database.MigrateAsync();
+        // اجرای Migration ها (کامنت شد چون جدول‌ها قبلاً ساخته شده‌اند)
+        // await context.Database.MigrateAsync();
 
-        // ============ ایجاد نقش‌ها ============
+
         if (!await context.Roles.AnyAsync())
         {
             var roles = new List<Role>
@@ -30,7 +30,7 @@ public static class DbInitializer
             await context.SaveChangesAsync();
         }
 
-        // ============ ایجاد کاربر Admin ============
+
         if (!await context.Users.AnyAsync(u => u.PhoneNumber == "09123456789"))
         {
             var adminUser = new User("مدیر سیستم", "09123456789", passwordHasher.HashPassword("Admin@123"));
@@ -39,7 +39,7 @@ public static class DbInitializer
             context.Users.Add(adminUser);
             await context.SaveChangesAsync();
 
-            // اختصاص نقش Admin
+
             var adminRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
             if (adminRole != null)
             {
@@ -49,7 +49,7 @@ public static class DbInitializer
             }
         }
 
-        // ============ ایجاد دسته‌بندی‌های اولیه ============
+
         if (!await context.Categories.AnyAsync())
         {
             var categories = new List<Category>

@@ -1,10 +1,12 @@
 ﻿using BabyShop.Application.Dtos;
 using BabyShop.Application.Interfaces.Services;
 using BabyShop.Core.Exceptions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BabyShop.API.Controllers;
 
+[Authorize(Policy = "UserOnly")]
 [ApiController]
 [Route("api/[controller]")]
 public class PaymentController : ControllerBase
@@ -75,6 +77,7 @@ public class PaymentController : ControllerBase
     }
 
     [HttpPost("{paymentId}/refund")]
+    [Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ApiResponse<PaymentDto>>> Refund(int paymentId, string reason)
     {
         try

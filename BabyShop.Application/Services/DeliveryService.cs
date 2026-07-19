@@ -39,7 +39,7 @@ public class DeliveryService : IDeliveryService
 
     public async Task<DeliveryDto> CreateDeliveryAsync(Dtos.CreateDeliveryDto dto)
     {
-        // ✅ درست: استفاده از سازنده کلاس Delivery
+      
         var delivery = new Delivery(
             dto.OrderId,
             dto.Address,
@@ -58,7 +58,7 @@ public class DeliveryService : IDeliveryService
         if (delivery == null)
             throw new Exception("Delivery not found");
 
-        // ✅ درست: استفاده از متدهای Business Logic کلاس Delivery
+ 
         if (dto.Status == "Shipped")
         {
             delivery.MarkAsShipped(dto.TrackingNumber ?? string.Empty);

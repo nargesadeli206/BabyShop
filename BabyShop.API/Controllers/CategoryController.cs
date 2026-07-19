@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BabyShop.API.Controllers;
 
-//[Authorize(Policy = "AdminOnly")]
 [ApiController]
 [Route("api/[controller]")]
 public class CategoryController : ControllerBase
@@ -21,6 +20,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "ManagerOnly")]
     public async Task<ActionResult<ApiResponse<CategoryDto>>> Create([FromBody] CreateCategoryDto dto)
     {
         try
@@ -45,6 +45,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "ManagerOnly")]
     public async Task<ActionResult<ApiResponse<CategoryDto>>> Update([FromBody] UpdateCategoryDto dto)
     {
         try
@@ -155,6 +156,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ApiResponse<object>>> Delete(int id)
     {
         try

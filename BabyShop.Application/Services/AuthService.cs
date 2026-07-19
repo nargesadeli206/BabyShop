@@ -3,6 +3,7 @@ using BabyShop.Application.Interfaces.Services;
 using BabyShop.Core.Entities;
 using BabyShop.Core.Interfaces;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -16,15 +17,18 @@ public class AuthService : IAuthService
     private readonly IUserRepository _userRepository;
     private readonly IConfiguration _configuration;
     private readonly IPasswordHasher _passwordHasher;
+    private readonly IHostEnvironment _environment;
 
     public AuthService(
         IUserRepository userRepository,
         IConfiguration configuration,
-        IPasswordHasher passwordHasher)
+        IPasswordHasher passwordHasher,
+        IHostEnvironment environment)
     {
         _userRepository = userRepository;
         _configuration = configuration;
         _passwordHasher = passwordHasher;
+        _environment = environment;
     }
 
     public async Task<AuthResultDto> RegisterAsync(RegisterDto dto)
@@ -46,17 +50,14 @@ public class AuthService : IAuthService
         if (!string.IsNullOrEmpty(dto.Email))
             user.SetEmail(dto.Email);
 
-        // ذخیره کاربر در دیتابیس
         await _userRepository.CreateUserAsync(user);
-
-        // ذخیره کد تأیید در دیتابیس
         await _userRepository.UpdateVerificationCodeAsync(user.Id, verificationCode);
 
         return new AuthResultDto
         {
             Success = true,
             Message = "ثبت‌نام با موفقیت انجام شد",
-            VerificationCode = verificationCode
+            VerificationCode = _environment.IsDevelopment() ? verificationCode : null
         };
     }
 
@@ -79,6 +80,12 @@ public class AuthService : IAuthService
                 Message = "رمز عبور نادرست است"
             };
 
+        if (_passwordHasher.NeedsRehash(user.PasswordHash))
+        {
+            var newHash = _passwordHasher.HashPassword(dto.Password);
+            await _userRepository.UpdatePasswordAsync(user.Id, newHash);
+        }
+
         if (!user.IsPhoneVerified)
         {
             var newCode = GenerateVerificationCode();
@@ -88,7 +95,7 @@ public class AuthService : IAuthService
             {
                 Success = false,
                 Message = "شماره موبایل تأیید نشده است. کد جدید برای شما ارسال شد.",
-                VerificationCode = newCode
+                VerificationCode = _environment.IsDevelopment() ? newCode : null
             };
         }
 
@@ -166,7 +173,6 @@ public class AuthService : IAuthService
 
     public async Task<AuthResultDto> RefreshTokenAsync(string refreshToken)
     {
-        // TODO: پیاده‌سازی Refresh Token
         return new AuthResultDto
         {
             Success = false,
@@ -174,9 +180,106 @@ public class AuthService : IAuthService
         };
     }
 
+    public async Task<AuthResultDto> ForgotPasswordAsync(ForgotPasswordDto dto)
+    {
+        var user = await _userRepository.GetByPhoneNumberAsync(dto.PhoneNumber);
+
+        if (user == null)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کاربری با این شماره موبایل یافت نشد"
+            };
+
+        var code = GenerateVerificationCode();
+        await _userRepository.UpdateVerificationCodeAsync(user.Id, code);
+
+        return new AuthResultDto
+        {
+            Success = true,
+            Message = "کد بازیابی رمز عبور ارسال شد",
+            VerificationCode = _environment.IsDevelopment() ? code : null
+        };
+    }
+
+    public async Task<AuthResultDto> VerifyResetCodeAsync(VerifyResetCodeDto dto)
+    {
+        var user = await _userRepository.GetByPhoneNumberAsync(dto.PhoneNumber);
+
+        if (user == null)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کاربر یافت نشد"
+            };
+
+        if (user.VerificationCode != dto.Code)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کد تأیید نامعتبر است"
+            };
+
+        if (user.VerificationCodeExpiry < DateTime.UtcNow)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کد تأیید منقضی شده است"
+            };
+
+        return new AuthResultDto
+        {
+            Success = true,
+            Message = "کد تأیید معتبر است"
+        };
+    }
+
+    public async Task<AuthResultDto> ResetPasswordAsync(ResetPasswordDto dto)
+    {
+        var user = await _userRepository.GetByPhoneNumberAsync(dto.PhoneNumber);
+
+        if (user == null)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کاربر یافت نشد"
+            };
+
+        if (user.VerificationCode != dto.Code)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کد تأیید نامعتبر است"
+            };
+
+        if (user.VerificationCodeExpiry < DateTime.UtcNow)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "کد تأیید منقضی شده است"
+            };
+
+        if (string.IsNullOrWhiteSpace(dto.NewPassword) || dto.NewPassword.Length < 6)
+            return new AuthResultDto
+            {
+                Success = false,
+                Message = "رمز عبور جدید باید حداقل ۶ کاراکتر باشد"
+            };
+
+        var passwordHash = _passwordHasher.HashPassword(dto.NewPassword);
+        await _userRepository.UpdatePasswordAsync(user.Id, passwordHash);
+        await _userRepository.UpdateVerificationCodeAsync(user.Id, string.Empty);
+
+        return new AuthResultDto
+        {
+            Success = true,
+            Message = "رمز عبور با موفقیت تغییر کرد"
+        };
+    }
+
     private string GenerateVerificationCode()
     {
-        return new Random().Next(100000, 999999).ToString();
+        return RandomNumberGenerator.GetInt32(100000, 1000000).ToString();
     }
 
     private async Task<TokenDto> GenerateTokenAsync(UserDto userDto)
@@ -184,16 +287,30 @@ public class AuthService : IAuthService
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.NameIdentifier, userDto.Id.ToString()),
+            new Claim(JwtRegisteredClaimNames.Sub, userDto.Id.ToString()),
             new Claim(ClaimTypes.MobilePhone, userDto.PhoneNumber),
             new Claim(ClaimTypes.Name, userDto.FullName),
             new Claim(ClaimTypes.Email, userDto.Email ?? "")
         };
 
+        var roles = await _userRepository.GetUserRoleNamesAsync(userDto.Id);
+        if (roles.Count == 0)
+        {
+            claims.Add(new Claim(ClaimTypes.Role, "User"));
+        }
+        else
+        {
+            foreach (var role in roles)
+                claims.Add(new Claim(ClaimTypes.Role, role));
+        }
+
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
             _configuration["Jwt:Key"] ?? "ThisIsASecretKeyForBabyShopProject2026ThatIsAtLeast32Chars"));
 
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-        var expiresAt = DateTime.UtcNow.AddDays(7);
+
+        // Access Token: 60 دقیقه
+        var expiresAt = DateTime.UtcNow.AddMinutes(60);
 
         var token = new JwtSecurityToken(
             issuer: _configuration["Jwt:Issuer"],

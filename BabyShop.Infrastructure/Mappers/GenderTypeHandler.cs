@@ -6,17 +6,25 @@ namespace BabyShop.Infrastructure.Mappers;
 
 public class GenderTypeHandler : SqlMapper.TypeHandler<Gender>
 {
-    public override void SetValue(IDbDataParameter parameter, Gender value)
+    public override void SetValue(IDbDataParameter parameter, Gender? value)
     {
-        parameter.Value = value.ToString();
         parameter.DbType = DbType.String;
+        parameter.Value = value != null ? value.Value.ToString() : DBNull.Value;
     }
 
-    public override Gender Parse(object value)
+    public override Gender? Parse(object value)
     {
         if (value == null || value is DBNull)
             return null;
 
-        return new Gender(value.ToString());
+        try
+        {
+            return Gender.FromAny(value.ToString());
+        }
+        catch
+        {
+            // مقدار ناشناخته در DB کل لیست را hang نکند
+            return Gender.Unisex;
+        }
     }
 }

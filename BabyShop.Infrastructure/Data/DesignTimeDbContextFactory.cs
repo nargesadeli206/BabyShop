@@ -1,5 +1,4 @@
-﻿using BabyShop.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace BabyShop.Infrastructure.Data

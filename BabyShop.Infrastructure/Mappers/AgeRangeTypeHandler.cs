@@ -6,17 +6,24 @@ namespace BabyShop.Infrastructure.Mappers;
 
 public class AgeRangeTypeHandler : SqlMapper.TypeHandler<AgeRange>
 {
-    public override void SetValue(IDbDataParameter parameter, AgeRange value)
+    public override void SetValue(IDbDataParameter parameter, AgeRange? value)
     {
-        parameter.Value = value?.Code;
         parameter.DbType = DbType.String;
+        parameter.Value = (object?)value?.Code ?? DBNull.Value;
     }
 
-    public override AgeRange Parse(object value)
+    public override AgeRange? Parse(object value)
     {
         if (value == null || value is DBNull)
             return null;
 
-        return new AgeRange(value.ToString());
+        try
+        {
+            return AgeRange.FromCode(value.ToString());
+        }
+        catch
+        {
+            return AgeRange.Baby;
+        }
     }
 }

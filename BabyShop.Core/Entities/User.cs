@@ -169,4 +169,22 @@ public class User : BaseEntity
             "ManageRoles", "ViewPayments", "ManagePayments"
         };
     }
+
+    public string? ResetCode { get; private set; }
+    public DateTime? ResetCodeExpiry { get; private set; }
+
+    public void SetResetCode(string code)
+    {
+        ResetCode = code;
+        ResetCodeExpiry = DateTime.UtcNow.AddMinutes(10);
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void ClearResetCode()
+    {
+        ResetCode = null;
+        ResetCodeExpiry = null;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
 }

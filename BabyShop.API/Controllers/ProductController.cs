@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BabyShop.API.Controllers;
 
-//[ApiController]
+[ApiController]
 [Route("api/[controller]")]
 public class ProductController : ControllerBase
 {
@@ -20,6 +20,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Policy = "ManagerOnly")]
     public async Task<ActionResult<ApiResponse<ProductDto>>> Create([FromBody] CreateProductDto dto)
     {
         try
@@ -44,6 +45,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut]
+    [Authorize(Policy = "ManagerOnly")]
     public async Task<ActionResult<ApiResponse<ProductDto>>> Update([FromBody] UpdateProductDto dto)
     {
         try
@@ -100,41 +102,103 @@ public class ProductController : ControllerBase
         {
             return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error GetPaged");
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
+        }
     }
 
     [HttpGet("by-gender/{gender}")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByGender(int gender)
     {
-        var products = await _productService.GetProductsByGenderAsync(gender);
-        return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        try
+        {
+            var products = await _productService.GetProductsByGenderAsync(gender);
+            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new ApiResponse<object>
+            {
+                Success = false,
+                Message = ex.Message + " — gender must be 1 (boy), 2 (girl), or 3 (unisex)"
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error GetByGender {Gender}", gender);
+            return StatusCode(500, new ApiResponse<object>
+            {
+                Success = false,
+                Message = "خطای سرور: " + ex.Message
+            });
+        }
     }
 
     [HttpGet("by-age/{ageRange}")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByAgeRange(string ageRange)
     {
-        var products = await _productService.GetProductsByAgeRangeAsync(ageRange);
-        return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        try
+        {
+            var products = await _productService.GetProductsByAgeRangeAsync(ageRange);
+            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        }
+        catch (ArgumentException ex)
+        {
+            return BadRequest(new ApiResponse<object>
+            {
+                Success = false,
+                Message = ex.Message + " — use: 0-3 | 3-6 | 6-12 | 12-24 | 24+"
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error GetByAgeRange {AgeRange}", ageRange);
+            return StatusCode(500, new ApiResponse<object>
+            {
+                Success = false,
+                Message = "خطای سرور: " + ex.Message
+            });
+        }
     }
 
     [HttpGet("category/{categoryId}")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByCategory(int categoryId)
     {
-        var products = await _productService.GetProductsByCategoryAsync(categoryId);
-        return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        try
+        {
+            var products = await _productService.GetProductsByCategoryAsync(categoryId);
+            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error GetByCategory {CategoryId}", categoryId);
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
+        }
     }
 
     [HttpGet("search")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<List<ProductDto>>>> Search([FromQuery] string term)
     {
-        var products = await _productService.SearchProductsAsync(term);
-        return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        try
+        {
+            var products = await _productService.SearchProductsAsync(term);
+            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error Search {Term}", term);
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
+        }
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ApiResponse<object>>> Delete(int id)
     {
         try
@@ -145,6 +209,11 @@ public class ProductController : ControllerBase
         catch (NotFoundException ex)
         {
             return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error Delete {Id}", id);
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور" });
         }
     }
 }

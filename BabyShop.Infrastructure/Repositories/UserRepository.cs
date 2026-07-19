@@ -97,7 +97,6 @@ public class UserRepository : IUserRepository
     {
         using var connection = new SqlConnection(_connectionString);
 
-        // دیباگ: ببین چه مقداری می‌آید
         Console.WriteLine($"=== UpdateVerificationCode called ===");
         Console.WriteLine($"UserId: {userId}");
         Console.WriteLine($"Code: {code}");
@@ -131,6 +130,34 @@ public class UserRepository : IUserRepository
             new { UserId = userId },
             commandType: CommandType.StoredProcedure
         );
+    }
+    public async Task UpdatePasswordAsync(int userId, string passwordHash)
+    {
+        using var connection = new SqlConnection(_connectionString);
+
+        await connection.ExecuteAsync(
+            @"UPDATE Users
+              SET PasswordHash = @PasswordHash,
+                  UpdatedAt = GETUTCDATE()
+              WHERE Id = @UserId AND ISNULL(IsDeleted, 0) = 0",
+            new { UserId = userId, PasswordHash = passwordHash }
+        );
+    }
+    public async Task<IReadOnlyList<string>> GetUserRoleNamesAsync(int userId)
+    {
+        using var connection = new SqlConnection(_connectionString);
+
+        var roles = await connection.QueryAsync<string>(
+            @"SELECT r.Name
+              FROM Roles r
+              INNER JOIN UserRoles ur ON ur.RoleId = r.Id
+              WHERE ur.UserId = @UserId
+                AND ISNULL(ur.IsDeleted, 0) = 0
+                AND ISNULL(r.IsDeleted, 0) = 0",
+            new { UserId = userId }
+        );
+
+        return roles.AsList();
     }
 
     // ============ متدهای IRepository<User> ============

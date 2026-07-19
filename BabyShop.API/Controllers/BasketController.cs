@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BabyShop.API.Controllers;
 
-// [Authorize]  ← کامنت شد برای تست
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class BasketController : ControllerBase
@@ -22,8 +22,14 @@ public class BasketController : ControllerBase
 
     private int GetCurrentUserId()
     {
-        // مقدار ثابت برای تست
-        return 19;
+        var claim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value
+                    ?? User.FindFirst("sub")?.Value
+                    ?? User.FindFirst("userId")?.Value;
+
+        if (int.TryParse(claim, out var userId) && userId > 0)
+            return userId;
+
+        throw new UnauthorizedAccessException("User id claim is missing from the JWT.");
     }
 
     [HttpGet("my")]

@@ -26,10 +26,15 @@ public class AppDbContext : DbContext
     public DbSet<Delivery> Deliveries { get; set; }
     public DbSet<Basket> Baskets { get; set; }
     public DbSet<BasketItem> BasketItems { get; set; }
+    public DbSet<Wishlist> Wishlists { get; set; }
+
+    // ============ جدید: سیستم پشتیبانی ============
+    public DbSet<SupportTicket> SupportTickets { get; set; }
+    public DbSet<TicketReply> TicketReplies { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // ============ Soft Delete Filters ============
+        // ============ Query Filters (فیلترهای حذف نرم) ============
         modelBuilder.Entity<User>().HasQueryFilter(u => !u.IsDeleted);
         modelBuilder.Entity<Role>().HasQueryFilter(r => !r.IsDeleted);
         modelBuilder.Entity<UserRole>().HasQueryFilter(ur => !ur.IsDeleted);
@@ -44,6 +49,8 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Delivery>().HasQueryFilter(d => !d.IsDeleted);
         modelBuilder.Entity<Basket>().HasQueryFilter(b => !b.IsDeleted);
         modelBuilder.Entity<BasketItem>().HasQueryFilter(bi => !bi.IsDeleted);
+        modelBuilder.Entity<SupportTicket>().HasQueryFilter(st => !st.IsDeleted);
+        modelBuilder.Entity<TicketReply>().HasQueryFilter(tr => !tr.IsDeleted); // اگر نیاز باشد
 
         // ============ User Configuration ============
         modelBuilder.Entity<User>(entity =>
@@ -130,7 +137,6 @@ public class AppDbContext : DbContext
             entity.Property(p => p.Price).IsRequired().HasPrecision(18, 2);
             entity.Property(p => p.CategoryId).IsRequired();
 
-            // Value Object conversions
             entity.Property(p => p.Gender)
                 .HasConversion(
                     v => v.Value,
@@ -319,10 +325,76 @@ public class AppDbContext : DbContext
                 .OnDelete(DeleteBehavior.Restrict);
         });
 
+        // ============ Wishlist Configuration ============
+        modelBuilder.Entity<Wishlist>(entity =>
+        {
+            entity.HasKey(w => w.Id);
+            entity.HasIndex(w => new { w.UserId, w.ProductId }).IsUnique();
+            entity.HasOne(w => w.User)
+                .WithMany()
+                .HasForeignKey(w => w.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
+            entity.HasOne(w => w.Product)
+                .WithMany()
+                .HasForeignKey(w => w.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        // ============ جدید: SupportTicket Configuration ============
+        modelBuilder.Entity<SupportTicket>(entity =>
+        {
+            entity.HasKey(t => t.Id);
+            entity.Property(t => t.TicketNumber).IsRequired().HasMaxLength(50);
+            entity.HasIndex(t => t.TicketNumber).IsUnique();
+            entity.Property(t => t.Subject).IsRequired().HasMaxLength(200);
+            entity.Property(t => t.Message).IsRequired();
+            entity.Property(t => t.UserId).IsRequired();
+            entity.Property(t => t.Status).IsRequired().HasMaxLength(20).HasDefaultValue("Open");
+            entity.Property(t => t.Priority).IsRequired().HasMaxLength(20).HasDefaultValue("Medium");
+            entity.Property(t => t.Category).IsRequired().HasMaxLength(100);
+
+            entity.HasOne(t => t.User)
+                .WithMany()
+                .HasForeignKey(t => t.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(t => t.Order)
+                .WithMany()
+                .HasForeignKey(t => t.OrderId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasOne(t => t.Product)
+                .WithMany()
+                .HasForeignKey(t => t.ProductId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasMany(t => t.Replies)
+                .WithOne(r => r.Ticket)
+                .HasForeignKey(r => r.TicketId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            entity.HasIndex(t => t.UserId);
+            entity.HasIndex(t => t.Status);
+            entity.HasIndex(t => t.CreatedAt);
+        });
+
+        // ============ جدید: TicketReply Configuration ============
+        modelBuilder.Entity<TicketReply>(entity =>
+        {
+            entity.HasKey(r => r.Id);
+            entity.Property(r => r.Message).IsRequired();
+
+            entity.HasOne(r => r.User)
+                .WithMany()
+                .HasForeignKey(r => r.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            entity.HasIndex(r => r.TicketId);
+        });
+
         base.OnModelCreating(modelBuilder);
     }
 
-    // ============ Soft Delete ============
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         UpdateSoftDeleteStatuses();

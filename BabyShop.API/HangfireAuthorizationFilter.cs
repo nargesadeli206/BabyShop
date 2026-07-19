@@ -7,14 +7,20 @@ public class HangfireAuthorizationFilter : IDashboardAuthorizationFilter
     public bool Authorize(DashboardContext context)
     {
         var httpContext = context.GetHttpContext();
-
-        // در محیط توسعه، همه دسترسی داشته باشند
         var env = httpContext.RequestServices.GetService<IHostEnvironment>();
-        if (env.IsDevelopment())
-            return true;
 
-        // در محیط تولید، فقط کاربران احراز هویت شده دسترسی داشته باشند
+        if (env?.IsDevelopment() == true)
+        {
+            var remote = httpContext.Connection.RemoteIpAddress;
+            if (remote == null)
+                return true;
+
+            return System.Net.IPAddress.IsLoopback(remote)
+                   || remote.Equals(httpContext.Connection.LocalIpAddress);
+        }
+
         var user = httpContext.User;
-        return user.Identity?.IsAuthenticated == true;
+        return user.Identity?.IsAuthenticated == true
+               && user.IsInRole("Admin");
     }
 }

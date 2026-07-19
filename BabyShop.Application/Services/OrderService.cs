@@ -56,7 +56,6 @@ public class OrderService : IOrderService
 
         var createdOrder = await _orderRepository.AddAsync(order);
         _logger.LogInformation("Order created with ID: {OrderId}", createdOrder.Id);
-
         return MapToDto(createdOrder);
     }
 
@@ -119,18 +118,40 @@ public class OrderService : IOrderService
 
     public async Task<OrderDto> CreateOrderFromBasketAsync(CreateOrderFromBasketDto dto)
     {
-        var basket = await _basketRepository.GetBasketWithItemsAsync(dto.BasketId);
-        if (basket == null || basket.Items == null || !basket.Items.Any())
-            throw new Exception("Basket is empty or not found");
+        Basket? basket;
+        if (dto.BasketId > 0)
+            basket = await _basketRepository.GetBasketWithItemsAsync(dto.BasketId);
+        else
+            basket = await _basketRepository.GetActiveBasketByUserIdAsync(dto.UserId);
 
-        var order = new Order(dto.UserId, dto.ShippingAddress, dto.PhoneNumber, dto.Email ?? "");
+        if (basket == null)
+            throw new Exception($"Basket not found (basketId={dto.BasketId}, userId={dto.UserId})");
+
+        if (basket.Items == null || !basket.Items.Any())
+            throw new Exception($"Basket is empty (basketId={basket.Id}). First add products via POST /api/Basket/add");
+
+        if (dto.UserId > 0 && basket.UserId != dto.UserId)
+            throw new Exception("This basket does not belong to the current user");
+
+        var order = new Order(
+            dto.UserId > 0 ? dto.UserId : basket.UserId,
+            dto.ShippingAddress,
+            dto.PhoneNumber,
+            dto.Email ?? "");
 
         if (!string.IsNullOrEmpty(dto.CustomerNote))
             order.AddCustomerNote(dto.CustomerNote);
 
         foreach (var item in basket.Items)
         {
-            order.AddItem(item.ProductId, item.Product?.Name ?? "Unknown", item.Quantity, item.UnitPrice);
+            var productName = item.Product?.Name;
+            if (string.IsNullOrWhiteSpace(productName))
+            {
+                var product = await _productRepository.GetByIdAsync(item.ProductId);
+                productName = product?.Name ?? $"Product #{item.ProductId}";
+            }
+
+            order.AddItem(item.ProductId, productName, item.Quantity, item.UnitPrice);
         }
 
         if (basket.DiscountAmount.HasValue)
@@ -138,10 +159,9 @@ public class OrderService : IOrderService
 
         var createdOrder = await _orderRepository.AddAsync(order);
 
-        // Clear the basket after creating order
-        await _basketRepository.ClearBasketAsync(dto.BasketId);
+        await _basketRepository.ClearBasketAsync(basket.Id);
 
-        _logger.LogInformation("Order created from basket {BasketId} with ID: {OrderId}", dto.BasketId, createdOrder.Id);
+        _logger.LogInformation("Order created from basket {BasketId} with ID: {OrderId}", basket.Id, createdOrder.Id);
 
         return MapToDto(createdOrder);
     }
@@ -155,7 +175,6 @@ public class OrderService : IOrderService
         await _orderRepository.UpdateAsync(order);
 
         _logger.LogInformation("Order {OrderId} cancelled. Reason: {Reason}", orderId, reason);
-
         return MapToDto(order);
     }
 
@@ -182,7 +201,7 @@ public class OrderService : IOrderService
             ShippedAt = order.ShippedAt,
             DeliveredAt = order.DeliveredAt,
             CreatedAt = order.CreatedAt,
-            Items = order.Items.Select(i => new OrderItemDto
+            Items = order.Items?.Select(i => new OrderItemDto
             {
                 Id = i.Id,
                 ProductId = i.ProductId,
@@ -190,7 +209,7 @@ public class OrderService : IOrderService
                 Quantity = i.Quantity,
                 UnitPrice = i.UnitPrice,
                 TotalPrice = i.TotalPrice
-            }).ToList()
+            }).ToList() ?? new List<OrderItemDto>()
         };
     }
 }

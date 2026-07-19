@@ -6,4 +6,9 @@ public interface IJobService
     Task CheckLowStockAsync();
     Task CleanupOldOrdersAsync();
     Task CleanupAbandonedCartsAsync();
+    Task GenerateDailySalesReportAsync();     
+    Task GenerateYearlySalesReportAsync();    
+    Task GenerateTopSellingProductsReportAsync(); 
+    Task GenerateInventoryStatusReportAsync();     
+    Task GenerateNewUsersReportAsync();
 }

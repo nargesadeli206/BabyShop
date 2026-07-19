@@ -18,12 +18,9 @@ public class BasketRepository : IBasketRepository
         _productRepository = productRepository;
     }
 
-    // ============ متدهای پایه ============
-
     public async Task<Basket?> GetByIdAsync(int id)
     {
         using var connection = new SqlConnection(_connectionString);
-
         return await connection.QueryFirstOrDefaultAsync<Basket>(
             "SELECT * FROM Baskets WHERE Id = @Id AND IsDeleted = 0",
             new { Id = id }
@@ -33,18 +30,15 @@ public class BasketRepository : IBasketRepository
     public async Task<IReadOnlyList<Basket>> GetAllAsync()
     {
         using var connection = new SqlConnection(_connectionString);
-
         var result = await connection.QueryAsync<Basket>(
             "SELECT * FROM Baskets WHERE IsDeleted = 0 ORDER BY CreatedAt DESC"
         );
-
         return result.AsList();
     }
 
     public async Task<Basket> AddAsync(Basket entity)
     {
         using var connection = new SqlConnection(_connectionString);
-
         var parameters = new DynamicParameters();
         parameters.Add("@UserId", entity.UserId);
         parameters.Add("@Status", entity.Status);
@@ -67,7 +61,6 @@ public class BasketRepository : IBasketRepository
     public async Task UpdateAsync(Basket entity)
     {
         using var connection = new SqlConnection(_connectionString);
-
         await connection.ExecuteAsync(
             "UPDATE Baskets SET " +
             "Status = @Status, " +
@@ -92,7 +85,6 @@ public class BasketRepository : IBasketRepository
     public async Task DeleteAsync(Basket entity)
     {
         using var connection = new SqlConnection(_connectionString);
-
         await connection.ExecuteAsync(
             "UPDATE Baskets SET IsDeleted = 1 WHERE Id = @Id",
             new { Id = entity.Id }
@@ -108,84 +100,79 @@ public class BasketRepository : IBasketRepository
     public async Task<int> CountAsync()
     {
         using var connection = new SqlConnection(_connectionString);
-
         return await connection.ExecuteScalarAsync<int>(
             "SELECT COUNT(*) FROM Baskets WHERE IsDeleted = 0"
         );
     }
 
-    // ============ متدهای اختصاصی Basket ============
-
     public async Task<Basket?> GetActiveBasketByUserIdAsync(int userId)
     {
         using var connection = new SqlConnection(_connectionString);
 
-        var basketDict = new Dictionary<int, Basket>();
-
-        var result = await connection.QueryAsync<Basket, BasketItem, Product, Basket>(
-            @"SELECT b.*, bi.*, p.*
-              FROM Baskets b
-              LEFT JOIN BasketItems bi ON b.Id = bi.BasketId
-              LEFT JOIN Products p ON bi.ProductId = p.Id
-              WHERE b.UserId = @UserId AND b.Status = 'Active' AND b.IsDeleted = 0",
-            (basket, item, product) =>
-            {
-                if (!basketDict.TryGetValue(basket.Id, out var currentBasket))
-                {
-                    currentBasket = basket;
-                    currentBasket.Items = new List<BasketItem>();
-                    basketDict.Add(basket.Id, currentBasket);
-                }
-
-                if (item != null)
-                {
-                    item.Product = product;
-                    currentBasket.Items.Add(item);
-                }
-
-                return currentBasket;
-            },
-            new { UserId = userId },
-            splitOn: "Id,Id"
+        var basket = await connection.QueryFirstOrDefaultAsync<Basket>(
+            @"SELECT TOP 1 *
+              FROM Baskets
+              WHERE UserId = @UserId
+                AND Status = 'Active'
+                AND ISNULL(IsDeleted, 0) = 0
+              ORDER BY Id DESC",
+            new { UserId = userId }
         );
 
-        return result.FirstOrDefault();
+        if (basket == null)
+            return null;
+
+        var items = (await connection.QueryAsync<BasketItem, Product, BasketItem>(
+            @"SELECT bi.*, p.*
+              FROM BasketItems bi
+              LEFT JOIN Products p ON bi.ProductId = p.Id AND ISNULL(p.IsDeleted, 0) = 0
+              WHERE bi.BasketId = @BasketId
+                AND ISNULL(bi.IsDeleted, 0) = 0",
+            (item, product) =>
+            {
+                item.Product = product;
+                return item;
+            },
+            new { BasketId = basket.Id },
+            splitOn: "Id"
+        )).AsList();
+
+        basket.Items = items;
+        return basket;
     }
 
     public async Task<Basket?> GetBasketWithItemsAsync(int basketId)
     {
         using var connection = new SqlConnection(_connectionString);
 
-        var basketDict = new Dictionary<int, Basket>();
-
-        var result = await connection.QueryAsync<Basket, BasketItem, Product, Basket>(
-            @"SELECT b.*, bi.*, p.*
-              FROM Baskets b
-              LEFT JOIN BasketItems bi ON b.Id = bi.BasketId
-              LEFT JOIN Products p ON bi.ProductId = p.Id
-              WHERE b.Id = @BasketId AND b.IsDeleted = 0",
-            (basket, item, product) =>
-            {
-                if (!basketDict.TryGetValue(basket.Id, out var currentBasket))
-                {
-                    currentBasket = basket;
-                    currentBasket.Items = new List<BasketItem>();
-                    basketDict.Add(basket.Id, currentBasket);
-                }
-
-                if (item != null)
-                {
-                    item.Product = product;
-                    currentBasket.Items.Add(item);
-                }
-
-                return currentBasket;
-            },
-            new { BasketId = basketId },
-            splitOn: "Id,Id"
+        var basket = await connection.QueryFirstOrDefaultAsync<Basket>(
+            @"SELECT *
+              FROM Baskets
+              WHERE Id = @BasketId
+                AND ISNULL(IsDeleted, 0) = 0",
+            new { BasketId = basketId }
         );
 
-        return result.FirstOrDefault();
+        if (basket == null)
+            return null;
+
+        var items = (await connection.QueryAsync<BasketItem, Product, BasketItem>(
+            @"SELECT bi.*, p.*
+              FROM BasketItems bi
+              LEFT JOIN Products p ON bi.ProductId = p.Id AND ISNULL(p.IsDeleted, 0) = 0
+              WHERE bi.BasketId = @BasketId
+                AND ISNULL(bi.IsDeleted, 0) = 0",
+            (item, product) =>
+            {
+                item.Product = product;
+                return item;
+            },
+            new { BasketId = basketId },
+            splitOn: "Id"
+        )).AsList();
+
+        basket.Items = items;
+        return basket;
     }
 
     public async Task<Basket?> GetOrCreateActiveBasketAsync(int userId)
@@ -209,9 +196,8 @@ public class BasketRepository : IBasketRepository
     public async Task<BasketItem?> GetBasketItemByProductAsync(int basketId, int productId)
     {
         using var connection = new SqlConnection(_connectionString);
-
         return await connection.QueryFirstOrDefaultAsync<BasketItem>(
-            "SELECT * FROM BasketItems WHERE BasketId = @BasketId AND ProductId = @ProductId",
+            "SELECT * FROM BasketItems WHERE BasketId = @BasketId AND ProductId = @ProductId AND ISNULL(IsDeleted, 0) = 0",
             new { BasketId = basketId, ProductId = productId }
         );
     }
@@ -219,9 +205,8 @@ public class BasketRepository : IBasketRepository
     public async Task<BasketItem?> GetBasketItemByIdAsync(int id)
     {
         using var connection = new SqlConnection(_connectionString);
-
         return await connection.QueryFirstOrDefaultAsync<BasketItem>(
-            "SELECT * FROM BasketItems WHERE Id = @Id",
+            "SELECT * FROM BasketItems WHERE Id = @Id AND ISNULL(IsDeleted, 0) = 0",
             new { Id = id }
         );
     }
@@ -229,7 +214,6 @@ public class BasketRepository : IBasketRepository
     public async Task AddBasketItemAsync(BasketItem item)
     {
         using var connection = new SqlConnection(_connectionString);
-
         var parameters = new DynamicParameters();
         parameters.Add("@BasketId", item.BasketId);
         parameters.Add("@ProductId", item.ProductId);
@@ -249,7 +233,6 @@ public class BasketRepository : IBasketRepository
     public async Task UpdateBasketItemAsync(BasketItem item)
     {
         using var connection = new SqlConnection(_connectionString);
-
         await connection.ExecuteAsync(
             "UPDATE BasketItems SET Quantity = @Quantity, UpdatedAt = GETDATE() WHERE Id = @Id",
             new { Id = item.Id, Quantity = item.Quantity }
@@ -259,31 +242,27 @@ public class BasketRepository : IBasketRepository
     public async Task<bool> RemoveBasketItemAsync(int basketItemId)
     {
         using var connection = new SqlConnection(_connectionString);
-
         var rows = await connection.ExecuteAsync(
             "DELETE FROM BasketItems WHERE Id = @Id",
             new { Id = basketItemId }
         );
-
         return rows > 0;
     }
 
     public async Task<bool> ClearBasketAsync(int basketId)
     {
         using var connection = new SqlConnection(_connectionString);
-
         var rows = await connection.ExecuteAsync(
             "DELETE FROM BasketItems WHERE BasketId = @BasketId",
             new { BasketId = basketId }
         );
-
         return rows > 0;
     }
 
     public async Task<int> GetBasketItemsCountAsync(int userId)
     {
         var basket = await GetActiveBasketByUserIdAsync(userId);
-        return basket?.Items?.Count ?? 0;
+        return basket?.Items?.Sum(i => i.Quantity) ?? 0;
     }
 
     public async Task<bool> ProductExistsAsync(int productId)
@@ -354,11 +333,16 @@ public class BasketRepository : IBasketRepository
         var discountAmount = basket.SubTotal * discountPercentage;
 
         using var connection = new SqlConnection(_connectionString);
-
         await connection.ExecuteAsync(
             "UPDATE Baskets SET DiscountCode = @DiscountCode, DiscountAmount = @DiscountAmount, DiscountPercentage = @DiscountPercentage, UpdatedAt = GETDATE() " +
             "WHERE Id = @BasketId AND IsDeleted = 0",
-            new { BasketId = basketId, DiscountCode = discountCode, DiscountAmount = discountAmount, DiscountPercentage = discountPercentage * 100 }
+            new
+            {
+                BasketId = basketId,
+                DiscountCode = discountCode,
+                DiscountAmount = discountAmount,
+                DiscountPercentage = discountPercentage * 100
+            }
         );
 
         await UpdateBasketTotalPrice(basketId);
@@ -368,7 +352,6 @@ public class BasketRepository : IBasketRepository
     public async Task<bool> RemoveDiscountAsync(int basketId)
     {
         using var connection = new SqlConnection(_connectionString);
-
         var rows = await connection.ExecuteAsync(
             "UPDATE Baskets SET DiscountCode = NULL, DiscountAmount = NULL, DiscountPercentage = NULL, UpdatedAt = GETDATE() " +
             "WHERE Id = @BasketId AND IsDeleted = 0",
@@ -386,12 +369,9 @@ public class BasketRepository : IBasketRepository
         {
             var totalPrice = basket.Items.Sum(i => i.UnitPrice * i.Quantity);
             if (basket.DiscountAmount.HasValue)
-            {
                 totalPrice -= basket.DiscountAmount.Value;
-            }
 
             using var connection = new SqlConnection(_connectionString);
-
             await connection.ExecuteAsync(
                 "UPDATE Baskets SET TotalPrice = @TotalPrice, UpdatedAt = GETDATE() WHERE Id = @Id AND IsDeleted = 0",
                 new { Id = basketId, TotalPrice = totalPrice }

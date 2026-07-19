@@ -18,8 +18,6 @@ public class ProductRepository : IProductRepository
         _connectionString = configuration.GetConnectionString("DefaultConnection");
     }
 
-    // ============ متدهای پایه ============
-
     public async Task<Product?> GetByIdAsync(int id)
     {
         using var connection = new SqlConnection(_connectionString);
@@ -51,7 +49,8 @@ public class ProductRepository : IProductRepository
         parameters.Add("@Description", entity.Description);
         parameters.Add("@Price", entity.Price);
         parameters.Add("@CategoryId", entity.CategoryId);
-        parameters.Add("@Gender", entity.Gender.ToString());
+        // ذخیره یکدست: 1 / 2 / 3
+        parameters.Add("@Gender", entity.Gender.Value.ToString());
         parameters.Add("@AgeRange", entity.AgeRange.Code);
         parameters.Add("@ImageUrl", entity.ImageUrl);
         parameters.Add("@Id", dbType: DbType.Int32, direction: ParameterDirection.Output);
@@ -90,7 +89,7 @@ public class ProductRepository : IProductRepository
                 Description = entity.Description,
                 Price = entity.Price,
                 CategoryId = entity.CategoryId,
-                Gender = entity.Gender.ToString(),
+                Gender = entity.Gender.Value.ToString(),
                 AgeRange = entity.AgeRange.Code,
                 ImageUrl = entity.ImageUrl
             }
@@ -113,8 +112,6 @@ public class ProductRepository : IProductRepository
         return product != null;
     }
 
-    // ============ متدهای صفحه‌بندی (برای سرویس) ============
-
     public async Task<IQueryable<Product>> GetQueryableAsync()
     {
         var products = await GetAllAsync();
@@ -135,8 +132,6 @@ public class ProductRepository : IProductRepository
 
         return await Task.FromResult(result);
     }
-
-    // ============ متدهای صفحه‌بندی با فیلتر مستقیم ============
 
     public async Task<IReadOnlyList<Product>> GetProductsAsync(
         int pageNumber = 1,
@@ -159,9 +154,9 @@ public class ProductRepository : IProductRepository
 
         if (gender.HasValue)
         {
-            var genderStr = gender.Value == 1 ? "Male" : "Female";
-            sql += " AND Gender = @Gender";
-            parameters.Add("@Gender", genderStr);
+            var g = Gender.FromValue(gender.Value);
+            sql += " AND Gender IN @GenderValues";
+            parameters.Add("@GenderValues", g.DbValues);
         }
 
         if (!string.IsNullOrEmpty(ageRange))
@@ -203,9 +198,9 @@ public class ProductRepository : IProductRepository
 
         if (gender.HasValue)
         {
-            var genderStr = gender.Value == 1 ? "Male" : "Female";
-            sql += " AND Gender = @Gender";
-            parameters.Add("@Gender", genderStr);
+            var g = Gender.FromValue(gender.Value);
+            sql += " AND Gender IN @GenderValues";
+            parameters.Add("@GenderValues", g.DbValues);
         }
 
         if (!string.IsNullOrEmpty(ageRange))
@@ -222,8 +217,6 @@ public class ProductRepository : IProductRepository
 
         return await connection.ExecuteScalarAsync<int>(sql, parameters);
     }
-
-    // ============ متدهای اختصاصی ============
 
     public async Task<Product?> GetByIdWithCategoryAsync(int id)
     {
@@ -309,9 +302,19 @@ public class ProductRepository : IProductRepository
     {
         using var connection = new SqlConnection(_connectionString);
 
+        // Male / پسرانه / 1 همگی match شوند
         var result = await connection.QueryAsync<Product>(
-            "SELECT * FROM Products WHERE Gender = @Gender AND IsDeleted = 0",
-            new { Gender = gender.ToString() }
+            @"SELECT * FROM Products
+              WHERE IsDeleted = 0
+                AND (
+                      Gender IN @Values
+                      OR LTRIM(RTRIM(CAST(Gender AS NVARCHAR(50)))) = @Display
+                    )",
+            new
+            {
+                Values = gender.DbValues,
+                Display = gender.DisplayName
+            }
         );
 
         return result.AsList();
@@ -322,8 +325,13 @@ public class ProductRepository : IProductRepository
         using var connection = new SqlConnection(_connectionString);
 
         var result = await connection.QueryAsync<Product>(
-            "SELECT * FROM Products WHERE AgeRange = @AgeRange AND IsDeleted = 0",
-            new { AgeRange = ageRange.Code }
+            @"SELECT * FROM Products
+              WHERE IsDeleted = 0
+                AND (
+                      AgeRange = @Code
+                      OR REPLACE(AgeRange, ' ', '') = @Code
+                    )",
+            new { Code = ageRange.Code }
         );
 
         return result.AsList();
@@ -354,8 +362,6 @@ public class ProductRepository : IProductRepository
 
         return count > 0;
     }
-
-    // ============ متدهای کمکی (برای تطابق با اینترفیس) ============
 
     public async Task DeleteAsync(Product entity)
     {

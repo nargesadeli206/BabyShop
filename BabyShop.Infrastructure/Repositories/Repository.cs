@@ -1,8 +1,8 @@
-﻿using System.Linq.Expressions;
-using BabyShop.Core.Entities.Base;
+﻿using BabyShop.Core.Entities.Base;
 using BabyShop.Core.Interfaces;
 using BabyShop.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace BabyShop.Infrastructure.Repositories;
 

@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace BabyShop.API.Controllers;
 
-//[Authorize(Policy = "UserOnly")]
+[Authorize(Policy = "UserOnly")]
 [ApiController]
 [Route("api/[controller]")]
 public class OrderController : ControllerBase
@@ -23,9 +23,14 @@ public class OrderController : ControllerBase
 
     private int GetCurrentUserId()
     {
-        // برای تست بدون احراز هویت، مقدار ثابت برگردان
-        return 19;  // ← مقدار ثابت برای تست
-        // return int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+        var claim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value
+                    ?? User.FindFirst("sub")?.Value
+                    ?? User.FindFirst("userId")?.Value;
+
+        if (int.TryParse(claim, out var userId) && userId > 0)
+            return userId;
+
+        throw new UnauthorizedAccessException("User id claim is missing from the JWT.");
     }
 
     private bool IsAdmin => User.IsInRole("Admin");
@@ -57,7 +62,6 @@ public class OrderController : ControllerBase
         if (order == null)
             return NotFound(new ApiResponse<object> { Success = false, Message = $"Order {id} not found" });
 
-        // بررسی مالکیت: فقط Admin یا خود کاربر
         if (!IsAdmin && order.UserId != GetCurrentUserId())
             return Forbid();
 
@@ -113,7 +117,6 @@ public class OrderController : ControllerBase
             if (order == null)
                 return NotFound(new ApiResponse<object> { Success = false, Message = $"Order {id} not found" });
 
-            // فقط خود کاربر یا Admin می‌تواند لغو کند
             if (!IsAdmin && order.UserId != GetCurrentUserId())
                 return Forbid();
 
