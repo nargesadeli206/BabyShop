@@ -1,64 +1,28 @@
 ﻿using BabyShop.Core.Entities.Base;
-using BabyShop.Core.Exceptions;
 
-namespace BabyShop.Core.Entities;
-
-public class OrderItem : BaseEntity
+namespace BabyShop.Core.Entities
 {
-    public int OrderId { get; set; }
-    public int ProductId { get; set; }
-    public string ProductName { get; set; } = string.Empty;
-    public int Quantity { get; set; }
-    public decimal UnitPrice { get; set; }
-    public decimal TotalPrice => Quantity * UnitPrice;
-
-    // Navigation properties
-    public Order? Order { get; set; }
-    public Product? Product { get; set; }
-
-    private OrderItem() { }
-
-    public OrderItem(int productId, string productName, int quantity, decimal unitPrice)
+    public class OrderItem : BaseEntity
     {
-        ProductId = productId;
-        ProductName = productName;
-        Quantity = quantity;
-        UnitPrice = unitPrice;
-    }
+        public int OrderId { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+        public decimal UnitPrice { get; set; }
+        public decimal TotalPrice => Quantity * UnitPrice;
 
-    public void IncreaseQuantity(int amount)
-    {
-        if (amount <= 0)
-            throw new BusinessRuleException("Amount must be greater than zero.");
+        // --- روابط (Navigations) مچ شده با AppDbContext ---
+        public virtual Order? Order { get; set; }     // حل ارور Order
+        public virtual Product? Product { get; set; } // حل ارور Product
 
-        Quantity += amount;
-        UpdatedAt = DateTime.UtcNow;
-    }
+        public OrderItem() { }
 
-    public void DecreaseQuantity(int amount)
-    {
-        if (amount <= 0)
-            throw new BusinessRuleException("Amount must be greater than zero.");
-        if (Quantity - amount <= 0)
-            throw new BusinessRuleException("Quantity cannot be zero or negative.");
-
-        Quantity -= amount;
-        UpdatedAt = DateTime.UtcNow;
-    }
-
-    public void UpdateQuantity(int quantity)
-    {
-        if (quantity <= 0)
-            throw new BusinessRuleException("Quantity must be greater than zero.");
-        Quantity = quantity;
-        UpdatedAt = DateTime.UtcNow;
-    }
-
-    internal void SetQuantity(int quantity)
-    {
-        if (quantity <= 0)
-            throw new BusinessRuleException("Quantity must be greater than zero.");
-        Quantity = quantity;
-        UpdatedAt = DateTime.UtcNow;
+        public OrderItem(int productId, string productName, int quantity, decimal unitPrice)
+        {
+            ProductId = productId;
+            ProductName = productName;
+            Quantity = quantity;
+            UnitPrice = unitPrice;
+        }
     }
 }

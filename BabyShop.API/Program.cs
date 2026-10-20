@@ -19,7 +19,7 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Dapper type handlers
+// Dapper type handlers  
 SqlMapper.AddTypeHandler(new GenderTypeHandler());
 SqlMapper.AddTypeHandler(new AgeRangeTypeHandler());
 
@@ -54,35 +54,23 @@ builder.Services.AddSwaggerGen(c =>
     c.OperationFilter<AuthorizeCheckOperationFilter>();
 });
 
-// CORS
-var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>()
-                     ?? new[] { "http://localhost:5191" };
-
+// ========== تنظیمات CORS (اصلاح شده) ==========
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AppCors", policy =>
     {
-        if (builder.Environment.IsDevelopment())
-        {
-            policy.AllowAnyOrigin()
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
-        }
-        else
-        {
-            policy.WithOrigins(allowedOrigins)
-                  .AllowAnyMethod()
-                  .AllowAnyHeader();
-        }
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
 
-// Database
+// Database  
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString, b => b.MigrationsAssembly("BabyShop.Infrastructure")));
 
-// Hangfire
+// Hangfire  
 var hangfireConnection = builder.Configuration.GetConnectionString("HangfireConnection");
 builder.Services.AddHangfire(configuration => configuration
     .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
@@ -97,7 +85,7 @@ builder.Services.AddHangfireServer(options =>
     options.WorkerCount = Environment.ProcessorCount * 2;
 });
 
-// JWT
+// JWT  
 var jwtKey = builder.Configuration["Jwt:Key"];
 if (string.IsNullOrWhiteSpace(jwtKey) || jwtKey.Contains("CHANGE_ME", StringComparison.OrdinalIgnoreCase))
 {
@@ -121,49 +109,16 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 jwtKey ?? "DevOnly_BabyShop_Jwt_Key_AtLeast_32_Chars_Long_2026!")),
             ClockSkew = TimeSpan.Zero
         };
-
-        options.Events = new JwtBearerEvents
-        {
-            OnMessageReceived = context =>
-            {
-                var authHeader = context.Request.Headers.Authorization.ToString();
-                if (string.IsNullOrEmpty(authHeader))
-                    Console.WriteLine("[JWT] No Authorization header on this request.");
-                else
-                    Console.WriteLine($"[JWT] Authorization header present (len={authHeader.Length}).");
-                return Task.CompletedTask;
-            },
-            OnAuthenticationFailed = context =>
-            {
-                Console.WriteLine($"[JWT] Authentication failed: {context.Exception.Message}");
-                return Task.CompletedTask;
-            },
-            OnTokenValidated = context =>
-            {
-                Console.WriteLine($"[JWT] Token validated for: {context.Principal?.Identity?.Name}");
-                return Task.CompletedTask;
-            },
-            OnChallenge = context =>
-            {
-                Console.WriteLine($"[JWT] Challenge: error={context.Error}, desc={context.ErrorDescription}");
-                return Task.CompletedTask;
-            }
-        };
     });
 
 builder.Services.AddAuthorization(options =>
 {
-    options.AddPolicy("AdminOnly", policy =>
-        policy.RequireRole("Admin"));
-
-    options.AddPolicy("ManagerOnly", policy =>
-        policy.RequireRole("Admin", "Manager"));
-
-    options.AddPolicy("UserOnly", policy =>
-        policy.RequireRole("Admin", "Manager", "User"));
+    options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
+    options.AddPolicy("ManagerOnly", policy => policy.RequireRole("Admin", "Manager"));
+    options.AddPolicy("UserOnly", policy => policy.RequireRole("Admin", "Manager", "User"));
 });
 
-// ========== Repositories (Infrastructure) ==========
+// ========== Repositories ==========  
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -175,9 +130,9 @@ builder.Services.AddScoped<IDeliveryRepository, DeliveryRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IWishlistRepository, WishlistRepository>();
 builder.Services.AddScoped<ISupportTicketRepository, SupportTicketRepository>();
-builder.Services.AddScoped<IReportRepository, ReportRepository>(); // Application.Interfaces
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
 
-// ========== Services (Application) ==========
+// ========== Services ==========  
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IPasswordHasher, PasswordHasher>();
 builder.Services.AddScoped<IOrderService, OrderService>();
@@ -201,13 +156,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI(c =>
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "BabyShop API V1");
-        c.RoutePrefix = string.Empty; // http://localhost:5191
+        c.RoutePrefix = string.Empty;
         c.EnablePersistAuthorization();
-        c.DisplayRequestDuration();
     });
 }
 
-app.UseCors("AppCors");
+app.UseCors("AppCors"); // فعال‌سازی CORS
 
 if (!app.Environment.IsDevelopment())
 {
@@ -217,6 +171,7 @@ if (!app.Environment.IsDevelopment())
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+app.UseStaticFiles();
 
 app.UseHangfireDashboard("/hangfire", new DashboardOptions
 {

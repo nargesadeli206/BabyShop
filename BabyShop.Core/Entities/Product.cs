@@ -1,6 +1,8 @@
 ﻿using BabyShop.Core.Entities.Base;
 using BabyShop.Core.Exceptions;
 using BabyShop.Core.ValueObjects;
+using System;
+using System.Collections.Generic;
 
 namespace BabyShop.Core.Entities;
 
@@ -19,7 +21,6 @@ public class Product : BaseEntity
     public string? MainImage { get; private set; }
     public string? ImageUrl { get; private set; }
 
-    // Navigation properties
     public virtual Category? Category { get; set; }
     public virtual Inventory? Inventory { get; set; }
     public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
@@ -27,13 +28,7 @@ public class Product : BaseEntity
 
     private Product() { }
 
-    public Product(
-        string name,
-        string description,
-        decimal price,
-        int categoryId,
-        Gender gender,
-        AgeRange ageRange)
+    public Product(string name, string description, decimal price, int categoryId, Gender gender, AgeRange ageRange)
     {
         SetName(name);
         SetSlug(name);
@@ -42,21 +37,12 @@ public class Product : BaseEntity
         CategoryId = categoryId;
         SetGender(gender);
         SetAgeRange(ageRange);
-        IsActive = true;
-        ViewCount = 0;
-        SoldCount = 0;
         CreatedAt = DateTime.UtcNow;
     }
 
-    public void Update(
-        string name,
-        string description,
-        decimal price,
-        Gender gender,
-        AgeRange ageRange)
+    public void Update(string name, string description, decimal price, Gender gender, AgeRange ageRange)
     {
         SetName(name);
-        SetSlug(name);
         SetDescription(description);
         SetPrice(price);
         SetGender(gender);
@@ -64,55 +50,26 @@ public class Product : BaseEntity
         UpdatedAt = DateTime.UtcNow;
     }
 
-    public void Activate() => IsActive = true;
-    public void Deactivate() => IsActive = false;
-    public void IncrementViewCount() => ViewCount++;
-    public void IncrementSoldCount(int quantity) => SoldCount += quantity;
+    // متدهای عمومی برای تغییر مقادیر توسط سرویس
+    public void SetSlug(string slug) => Slug = slug.Trim().ToLower().Replace(" ", "-");
+    public void SetImageUrl(string imageUrl) => ImageUrl = imageUrl;
     public void SetMainImage(string imageUrl) => MainImage = imageUrl;
-
     public int StockQuantity => Inventory?.CurrentStock ?? 0;
 
     private void SetName(string name)
     {
-        if (string.IsNullOrWhiteSpace(name))
-            throw new BusinessRuleException("نام محصول نمی‌تواند خالی باشد.");
-        if (name.Length < 3)
-            throw new BusinessRuleException("نام محصول باید حداقل ۳ کاراکتر باشد.");
+        if (string.IsNullOrWhiteSpace(name)) throw new BusinessRuleException("نام محصول الزامی است");
         Name = name.Trim();
     }
 
-    private void SetSlug(string name)
-    {
-        Slug = name.Trim()
-            .ToLower()
-            .Replace(" ", "-")
-            .Replace("'", "")
-            .Replace("\"", "")
-            .Replace("(", "")
-            .Replace(")", "")
-            .Replace("،", "")
-            .Replace(",", "");
-    }
-
-    private void SetDescription(string description)
-    {
-        Description = description?.Trim() ?? string.Empty;
-    }
+    private void SetDescription(string desc) => Description = desc?.Trim() ?? string.Empty;
 
     private void SetPrice(decimal price)
     {
-        if (price <= 0)
-            throw new BusinessRuleException("قیمت محصول باید بیشتر از صفر باشد.");
+        if (price <= 0) throw new BusinessRuleException("قیمت باید بیشتر از صفر باشد");
         Price = price;
     }
 
-    private void SetGender(Gender gender)
-    {
-        Gender = gender ?? throw new BusinessRuleException("جنسیت نمی‌تواند خالی باشد.");
-    }
-
-    private void SetAgeRange(AgeRange ageRange)
-    {
-        AgeRange = ageRange ?? throw new BusinessRuleException("رده سنی نمی‌تواند خالی باشد.");
-    }
+    private void SetGender(Gender g) => Gender = g;
+    private void SetAgeRange(AgeRange a) => AgeRange = a;
 }

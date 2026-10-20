@@ -20,6 +20,7 @@ public class PaymentController : ControllerBase
         _logger = logger;
     }
 
+    // ۱. ایجاد تراکنش پرداخت جدید
     [HttpPost]
     public async Task<ActionResult<ApiResponse<PaymentDto>>> Create([FromBody] CreatePaymentDto dto)
     {
@@ -38,6 +39,7 @@ public class PaymentController : ControllerBase
         }
     }
 
+    // ۲. دریافت اطلاعات پرداخت بر اساس شماره سفارش
     [HttpGet("order/{orderId}")]
     public async Task<ActionResult<ApiResponse<PaymentDto>>> GetByOrder(int orderId)
     {
@@ -48,16 +50,7 @@ public class PaymentController : ControllerBase
         return Ok(new ApiResponse<PaymentDto> { Success = true, Data = payment });
     }
 
-    [HttpGet("authority/{authority}")]
-    public async Task<ActionResult<ApiResponse<PaymentDto>>> GetByAuthority(string authority)
-    {
-        var payment = await _paymentService.GetPaymentByAuthorityAsync(authority);
-        if (payment == null)
-            return NotFound(new ApiResponse<object> { Success = false, Message = $"Payment with authority {authority} not found" });
-
-        return Ok(new ApiResponse<PaymentDto> { Success = true, Data = payment });
-    }
-
+    // ۳. تایید نهایی پرداخت (Verify) - اصلاح شده برای هماهنگی با فرانت
     [HttpPost("verify")]
     public async Task<ActionResult<ApiResponse<PaymentDto>>> Verify(int paymentId, string referenceNumber)
     {
@@ -74,8 +67,14 @@ public class PaymentController : ControllerBase
         {
             return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
         }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error verifying payment");
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور در تایید پرداخت" });
+        }
     }
 
+    // ۴. مرجوع کردن وجه (مخصوص ادمین)
     [HttpPost("{paymentId}/refund")]
     [Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ApiResponse<PaymentDto>>> Refund(int paymentId, string reason)

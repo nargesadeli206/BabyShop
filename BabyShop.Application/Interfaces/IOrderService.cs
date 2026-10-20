@@ -12,4 +12,5 @@ public interface IOrderService
     Task<OrderDto> UpdateOrderStatusAsync(UpdateOrderStatusDto dto);
     Task<OrderDto> CreateOrderFromBasketAsync(CreateOrderFromBasketDto dto);
     Task<OrderDto> CancelOrderAsync(int orderId, string reason);
+    Task<List<OrderSummaryDto>> GetAllOrdersForAdminAsync();
 }

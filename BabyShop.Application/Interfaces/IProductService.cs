@@ -14,4 +14,5 @@ public interface IProductService
     Task DeleteProductAsync(int id);
     Task<List<ProductDto>> GetProductsByGenderAsync(int gender);
     Task<List<ProductDto>> GetProductsByAgeRangeAsync(string ageRange);
+    Task<ProductDto> UploadProductImageAsync(int productId, string imageUrl);
 }

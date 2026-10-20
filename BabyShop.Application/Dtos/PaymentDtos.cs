@@ -1,4 +1,6 @@
-﻿namespace BabyShop.Application.Dtos;
+﻿using System;
+
+namespace BabyShop.Application.Dtos;
 
 public class CreatePaymentDto
 {

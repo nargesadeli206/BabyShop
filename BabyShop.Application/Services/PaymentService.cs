@@ -1,137 +1,111 @@
 ﻿using BabyShop.Application.Dtos;
 using BabyShop.Application.Interfaces.Services;
 using BabyShop.Core.Entities;
-using BabyShop.Core.Exceptions;
 using BabyShop.Core.Interfaces;
-using Microsoft.Extensions.Logging;
+using BabyShop.Core.Exceptions;
+using System.Threading.Tasks;
+using System;
 
-namespace BabyShop.Application.Services;
-
-public class PaymentService : IPaymentService
+namespace BabyShop.Application.Services
 {
-    private readonly IPaymentRepository _paymentRepository;
-    private readonly IOrderRepository _orderRepository;
-    private readonly ILogger<PaymentService> _logger;
-
-    public PaymentService(
-        IPaymentRepository paymentRepository,
-        IOrderRepository orderRepository,
-        ILogger<PaymentService> logger)
+    public class PaymentService : IPaymentService
     {
-        _paymentRepository = paymentRepository;
-        _orderRepository = orderRepository;
-        _logger = logger;
-    }
+        private readonly IOrderRepository _orderRepository;
+        private readonly IPaymentRepository _paymentRepository;
 
-    public async Task<PaymentDto?> GetPaymentByIdAsync(int id)
-    {
-        var payment = await _paymentRepository.GetByIdAsync(id);
-        if (payment == null) return null;
-        return MapToDto(payment);
-    }
-
-    public async Task<PaymentDto?> GetPaymentByOrderIdAsync(int orderId)
-    {
-        var payment = await _paymentRepository.GetPaymentByOrderIdAsync(orderId);
-        if (payment == null) return null;
-        return MapToDto(payment);
-    }
-
-    public async Task<PaymentDto?> GetPaymentByAuthorityAsync(string authority)
-    {
-        var payment = await _paymentRepository.GetPaymentByAuthorityAsync(authority);
-        if (payment == null) return null;
-        return MapToDto(payment);
-    }
-
-    public async Task<PaymentDto> CreatePaymentAsync(CreatePaymentDto dto)
-    {
-        var order = await _orderRepository.GetByIdAsync(dto.OrderId);
-        if (order == null)
-            throw new NotFoundException(nameof(Order), dto.OrderId);
-
-       
-        var payment = new Payment(dto.OrderId, dto.Amount, dto.PaymentMethod);
-
-        var createdPayment = await _paymentRepository.CreatePaymentAsync(payment);
-
-        _logger.LogInformation("Payment created for order {OrderId} with amount {Amount}",
-            dto.OrderId, dto.Amount);
-
-        return MapToDto(createdPayment);
-    }
-
-    public async Task<PaymentDto> VerifyPaymentAsync(int paymentId, string referenceNumber)
-    {
-        var payment = await _paymentRepository.GetByIdAsync(paymentId);
-        if (payment == null)
-            throw new NotFoundException(nameof(Payment), paymentId);
-
-        
-        payment.Verify(referenceNumber);
-        await _paymentRepository.UpdateAsync(payment);
-
-        
-        var order = await _orderRepository.GetByIdAsync(payment.OrderId);
-        if (order != null)
+        public PaymentService(IOrderRepository orderRepository, IPaymentRepository paymentRepository)
         {
-            order.MarkAsPaid();
-            await _orderRepository.UpdateAsync(order);
+            _orderRepository = orderRepository;
+            _paymentRepository = paymentRepository;
         }
 
-        _logger.LogInformation("Payment {PaymentId} verified with reference {ReferenceNumber}",
-            paymentId, referenceNumber);
-
-        return MapToDto(payment);
-    }
-
-    public async Task<PaymentDto> RefundPaymentAsync(int paymentId, string reason)
-    {
-        var payment = await _paymentRepository.GetByIdAsync(paymentId);
-        if (payment == null)
-            throw new NotFoundException(nameof(Payment), paymentId);
-
-        // ✅ درست: استفاده از متد Refund
-        payment.Refund(reason);
-        await _paymentRepository.UpdateAsync(payment);
-
-        // به‌روزرسانی وضعیت سفارش
-        var order = await _orderRepository.GetByIdAsync(payment.OrderId);
-        if (order != null)
+        // ۱. ایجاد تراکنش پرداخت جدید (متصل به درگاه)
+        public async Task<PaymentDto> CreatePaymentAsync(CreatePaymentDto dto)
         {
-            order.MarkAsRefunded();
-            await _orderRepository.UpdateAsync(order);
+            var order = await _orderRepository.GetByIdAsync(dto.OrderId);
+            if (order == null) throw new NotFoundException("سفارش مورد نظر یافت نشد.");
+
+            // جلوگیری از پرداختِ سفارشی که قبلاً پرداخت شده
+            if (order.Status == "Paid")
+                throw new BusinessRuleException("این سفارش قبلاً پرداخت شده است.");
+
+            // ایجاد آبجکت Payment برای دیتابیس
+            var payment = new Payment(dto.OrderId, dto.Amount, dto.PaymentMethod);
+
+            // تولید یه کد آتوریتی رندوم (شبیه سازی بازگشت از درگاه شاپرک)
+            payment.SetAuthority($"ZIIZII-{Guid.NewGuid().ToString("N").Substring(0, 10).ToUpper()}");
+
+            var createdPayment = await _paymentRepository.AddAsync(payment);
+            return MapToDto(createdPayment);
         }
 
-        _logger.LogInformation("Payment {PaymentId} refunded. Reason: {Reason}",
-            paymentId, reason);
-
-        return MapToDto(payment);
-    }
-
-    public async Task<decimal> GetOrderTotalAmountAsync(int orderId)
-    {
-        var order = await _orderRepository.GetByIdAsync(orderId);
-        if (order == null)
-            throw new NotFoundException(nameof(Order), orderId);
-        return order.TotalAmount;
-    }
-
-    private PaymentDto MapToDto(Payment payment)
-    {
-        return new PaymentDto
+        // ۲. تایید نهایی پرداخت (هنگام برگشت از درگاه بانک)
+        public async Task<PaymentDto> VerifyPaymentAsync(int paymentId, string referenceNumber)
         {
-            Id = payment.Id,
-            OrderId = payment.OrderId,
-            Amount = payment.Amount,
-            Status = payment.Status,
-            Authority = payment.Authority,
-            ReferenceNumber = payment.ReferenceNumber,
-            PaidAt = payment.PaidAt,
-            RefundedAt = payment.RefundedAt,
-            RefundReason = payment.RefundReason,
-            PaymentMethod = payment.PaymentMethod,
-            CreatedAt = payment.CreatedAt
-        };
+            var payment = await _paymentRepository.GetByIdAsync(paymentId);
+            if (payment == null) throw new NotFoundException("تراکنش یافت نشد.", paymentId);
+
+            if (payment.Status == "Successful")
+                throw new BusinessRuleException("این تراکنش قبلاً تایید شده است.");
+
+            // تایید پرداخت و ثبت شماره پیگیری بانک
+            payment.Verify(referenceNumber);
+            await _paymentRepository.UpdateAsync(payment);
+
+            // حالا باید وضعیت سفارش اصلی رو هم بکنیم 'پرداخت شده'
+            var order = await _orderRepository.GetByIdAsync(payment.OrderId);
+            if (order != null)
+            {
+                order.MarkAsPaid();
+                await _orderRepository.UpdateAsync(order);
+            }
+
+            return MapToDto(payment);
+        }
+
+        public async Task<PaymentDto> RefundPaymentAsync(int paymentId, string reason)
+        {
+            var payment = await _paymentRepository.GetByIdAsync(paymentId);
+            if (payment == null) throw new NotFoundException("Payment", paymentId);
+
+            payment.Refund(reason);
+            await _paymentRepository.UpdateAsync(payment);
+
+            var order = await _orderRepository.GetByIdAsync(payment.OrderId);
+            if (order != null)
+            {
+                order.MarkAsRefunded();
+                await _orderRepository.UpdateAsync(order);
+            }
+
+            return MapToDto(payment);
+        }
+
+        public async Task<decimal> GetOrderTotalAmountAsync(int orderId) =>
+            (await _orderRepository.GetByIdAsync(orderId))?.TotalAmount ?? 0;
+
+        public async Task<PaymentDto?> GetPaymentByIdAsync(int id) =>
+            MapToDto(await _paymentRepository.GetByIdAsync(id));
+
+        public async Task<PaymentDto?> GetPaymentByAuthorityAsync(string auth) =>
+            MapToDto(await _paymentRepository.GetPaymentByAuthorityAsync(auth));
+
+        public async Task<PaymentDto?> GetPaymentByOrderIdAsync(int id) =>
+            MapToDto(await _paymentRepository.GetPaymentByOrderIdAsync(id));
+
+        private PaymentDto MapToDto(Payment? p)
+        {
+            if (p == null) return null!;
+            return new PaymentDto
+            {
+                Id = p.Id,
+                OrderId = p.OrderId,
+                Status = p.Status,
+                Amount = p.Amount,
+                PaymentMethod = p.PaymentMethod,
+                Authority = p.Authority,
+                ReferenceNumber = p.ReferenceNumber
+            };
+        }
     }
 }

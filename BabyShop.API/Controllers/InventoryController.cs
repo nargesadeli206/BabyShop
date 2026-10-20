@@ -1,180 +1,74 @@
 ﻿using BabyShop.Application.Dtos;
 using BabyShop.Application.Interfaces.Services;
-using BabyShop.Core.Exceptions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Threading.Tasks;
 
-namespace BabyShop.API.Controllers;
-
-[Authorize(Policy = "ManagerOnly")]
-[ApiController]
-[Route("api/[controller]")]
-public class InventoryController : ControllerBase
+namespace BabyShop.API.Controllers
 {
-    private readonly IInventoryService _inventoryService;
-    private readonly ILogger<InventoryController> _logger;
-
-    public InventoryController(IInventoryService inventoryService, ILogger<InventoryController> logger)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class InventoryController : ControllerBase
     {
-        _inventoryService = inventoryService;
-        _logger = logger;
-    }
+        private readonly IInventoryService _inventoryService;
 
-    [HttpPost]
-    public async Task<ActionResult<ApiResponse<InventoryDto>>> Create([FromBody] CreateInventoryDto dto)
-    {
-        try
+        public InventoryController(IInventoryService inventoryService)
         {
-            var inventory = await _inventoryService.CreateInventoryAsync(dto);
-            return Ok(new ApiResponse<InventoryDto> { Success = true, Data = inventory, Message = "موجودی با موفقیت ایجاد شد" });
+            _inventoryService = inventoryService;
         }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (BusinessRuleException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error creating inventory");
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
 
-    [HttpPut("increase")]
-    public async Task<ActionResult<ApiResponse<InventoryDto>>> Increase(int productId, int quantity)
-    {
-        try
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
         {
-            var inventory = await _inventoryService.IncreaseStockAsync(productId, quantity);
-            return Ok(new ApiResponse<InventoryDto> { Success = true, Data = inventory, Message = "موجودی با موفقیت افزایش یافت" });
+            var result = await _inventoryService.GetAllInventoriesAsync();
+            return Ok(new { success = true, data = result });
         }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (BusinessRuleException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error increasing stock for product {ProductId}", productId);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
 
-    [HttpPut("decrease")]
-    public async Task<ActionResult<ApiResponse<InventoryDto>>> Decrease(int productId, int quantity)
-    {
-        try
+        [HttpPut("increase")]
+        public async Task<IActionResult> Increase([FromQuery] int productId, [FromQuery] string? ageRange, [FromQuery] int quantity)
         {
-            var inventory = await _inventoryService.DecreaseStockAsync(productId, quantity);
-            return Ok(new ApiResponse<InventoryDto> { Success = true, Data = inventory, Message = "موجودی با موفقیت کاهش یافت" });
+            try
+            {
+                var safeAgeRange = string.IsNullOrEmpty(ageRange) ? "0-3" : ageRange;
+                var result = await _inventoryService.IncreaseStockAsync(productId, safeAgeRange, quantity);
+                return Ok(new { success = true, data = result });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (BusinessRuleException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error decreasing stock for product {ProductId}", productId);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
 
-    [HttpGet("product/{productId}")]
-    public async Task<ActionResult<ApiResponse<InventoryDto>>> GetByProduct(int productId)
-    {
-        try
+        [HttpPut("decrease")]
+        public async Task<IActionResult> Decrease([FromQuery] int productId, [FromQuery] string? ageRange, [FromQuery] int quantity)
         {
-            var inventory = await _inventoryService.GetInventoryByProductIdAsync(productId);
-            if (inventory == null)
-                return NotFound(new ApiResponse<object> { Success = false, Message = $"موجودی برای محصول {productId} یافت نشد" });
+            try
+            {
+                // حالا بک‌اند سایز را دریافت می‌کند و از همان سایز کم می‌کند!
+                var safeAgeRange = string.IsNullOrEmpty(ageRange) ? "0-3" : ageRange;
+                var result = await _inventoryService.DecreaseStockAsync(productId, safeAgeRange, quantity);
+                return Ok(new { success = true, data = result });
+            }
+            catch (Exception ex)
+            {
+                // رفع ارور 500 در صورت کمبود موجودی
+                return BadRequest(new { success = false, message = ex.Message });
+            }
+        }
 
-            return Ok(new ApiResponse<InventoryDto> { Success = true, Data = inventory });
-        }
-        catch (Exception ex)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
-            _logger.LogError(ex, "Error getting inventory for product {ProductId}", productId);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
-
-    [HttpGet]
-    public async Task<ActionResult<ApiResponse<List<InventoryDto>>>> GetAll()
-    {
-        try
-        {
-            var inventories = await _inventoryService.GetAllInventoriesAsync();
-            return Ok(new ApiResponse<List<InventoryDto>> { Success = true, Data = inventories });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error getting all inventories");
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
-
-    [HttpGet("lowstock")]
-    public async Task<ActionResult<ApiResponse<List<InventoryDto>>>> GetLowStock()
-    {
-        try
-        {
-            var inventories = await _inventoryService.GetLowStockInventoriesAsync();
-            return Ok(new ApiResponse<List<InventoryDto>> { Success = true, Data = inventories });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error getting low stock inventories");
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
-
-    [HttpGet("{id}")]
-    public async Task<ActionResult<ApiResponse<InventoryDto>>> GetById(int id)
-    {
-        try
-        {
-            var inventory = await _inventoryService.GetInventoryByIdAsync(id);
-            if (inventory == null)
-                return NotFound(new ApiResponse<object> { Success = false, Message = $"موجودی با شناسه {id} یافت نشد" });
-
-            return Ok(new ApiResponse<InventoryDto> { Success = true, Data = inventory });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error getting inventory by id {Id}", id);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
-        }
-    }
-
-    [HttpDelete("{id}")]
-    public async Task<ActionResult<ApiResponse<object>>> Delete(int id)
-    {
-        try
-        {
-            await _inventoryService.DeleteInventoryAsync(id);
-            return Ok(new ApiResponse<object> { Success = true, Message = "موجودی با موفقیت حذف شد" });
-        }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (BusinessRuleException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error deleting inventory {Id}", id);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای داخلی سرور" });
+            try
+            {
+                await _inventoryService.DeleteInventoryAsync(id);
+                return Ok(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { success = false, message = ex.Message });
+            }
         }
     }
 }

@@ -19,47 +19,42 @@ public class ProductController : ControllerBase
         _logger = logger;
     }
 
+    // ۱. ایجاد محصول جدید (پشتیبانی از عکس و متن با FromForm)
     [HttpPost]
     [Authorize(Policy = "ManagerOnly")]
-    public async Task<ActionResult<ApiResponse<ProductDto>>> Create([FromBody] CreateProductDto dto)
+    public async Task<ActionResult<ApiResponse<ProductDto>>> Create([FromForm] CreateProductDto dto)
     {
         try
         {
             var product = await _productService.CreateProductAsync(dto);
+
             return CreatedAtAction(nameof(Get), new { id = product.Id },
-                new ApiResponse<ProductDto> { Success = true, Data = product, Message = "Product created" });
+                new ApiResponse<ProductDto> { Success = true, Data = product, Message = "محصول با موفقیت ایجاد شد" });
         }
         catch (BusinessRuleException ex)
         {
             return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Error creating product");
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور" });
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور در ایجاد محصول" });
         }
     }
 
+    // ۲. ویرایش محصول
     [HttpPut]
     [Authorize(Policy = "ManagerOnly")]
-    public async Task<ActionResult<ApiResponse<ProductDto>>> Update([FromBody] UpdateProductDto dto)
+    public async Task<ActionResult<ApiResponse<ProductDto>>> Update([FromForm] UpdateProductDto dto)
     {
         try
         {
             var product = await _productService.UpdateProductAsync(dto);
-            return Ok(new ApiResponse<ProductDto> { Success = true, Data = product, Message = "Product updated" });
+            return Ok(new ApiResponse<ProductDto> { Success = true, Data = product, Message = "محصول بروزرسانی شد" });
         }
         catch (NotFoundException ex)
         {
             return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
-        catch (BusinessRuleException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
         }
         catch (Exception ex)
         {
@@ -68,17 +63,19 @@ public class ProductController : ControllerBase
         }
     }
 
+    // ۳. دریافت محصول تکی
     [HttpGet("{id}")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<ProductDto>>> Get(int id)
     {
         var product = await _productService.GetProductByIdAsync(id);
         if (product == null)
-            return NotFound(new ApiResponse<object> { Success = false, Message = $"Product {id} not found" });
+            return NotFound(new ApiResponse<object> { Success = false, Message = $"محصول یافت نشد" });
 
         return Ok(new ApiResponse<ProductDto> { Success = true, Data = product });
     }
 
+    // ۴. دریافت لیست کل محصولات
     [HttpGet]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetAll()
@@ -87,6 +84,7 @@ public class ProductController : ControllerBase
         return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
     }
 
+    // ۵. دریافت محصولات به صورت صفحه‌بندی شده
     [HttpGet("paged")]
     [AllowAnonymous]
     public async Task<ActionResult<ApiResponse<PagedResultDto<ProductListDto>>>> GetPaged(
@@ -98,105 +96,14 @@ public class ProductController : ControllerBase
             var result = await _productService.GetProductsPagedAsync(pageNumber, pageSize, gender, ageRange);
             return Ok(new ApiResponse<PagedResultDto<ProductListDto>> { Success = true, Data = result });
         }
-        catch (NotFoundException ex)
-        {
-            return BadRequest(new ApiResponse<object> { Success = false, Message = ex.Message });
-        }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error GetPaged");
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
+            _logger.LogError(ex, "Error in GetPaged");
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور" });
         }
     }
 
-    [HttpGet("by-gender/{gender}")]
-    [AllowAnonymous]
-    public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByGender(int gender)
-    {
-        try
-        {
-            var products = await _productService.GetProductsByGenderAsync(gender);
-            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(new ApiResponse<object>
-            {
-                Success = false,
-                Message = ex.Message + " — gender must be 1 (boy), 2 (girl), or 3 (unisex)"
-            });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error GetByGender {Gender}", gender);
-            return StatusCode(500, new ApiResponse<object>
-            {
-                Success = false,
-                Message = "خطای سرور: " + ex.Message
-            });
-        }
-    }
-
-    [HttpGet("by-age/{ageRange}")]
-    [AllowAnonymous]
-    public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByAgeRange(string ageRange)
-    {
-        try
-        {
-            var products = await _productService.GetProductsByAgeRangeAsync(ageRange);
-            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
-        }
-        catch (ArgumentException ex)
-        {
-            return BadRequest(new ApiResponse<object>
-            {
-                Success = false,
-                Message = ex.Message + " — use: 0-3 | 3-6 | 6-12 | 12-24 | 24+"
-            });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error GetByAgeRange {AgeRange}", ageRange);
-            return StatusCode(500, new ApiResponse<object>
-            {
-                Success = false,
-                Message = "خطای سرور: " + ex.Message
-            });
-        }
-    }
-
-    [HttpGet("category/{categoryId}")]
-    [AllowAnonymous]
-    public async Task<ActionResult<ApiResponse<List<ProductDto>>>> GetByCategory(int categoryId)
-    {
-        try
-        {
-            var products = await _productService.GetProductsByCategoryAsync(categoryId);
-            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error GetByCategory {CategoryId}", categoryId);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
-        }
-    }
-
-    [HttpGet("search")]
-    [AllowAnonymous]
-    public async Task<ActionResult<ApiResponse<List<ProductDto>>>> Search([FromQuery] string term)
-    {
-        try
-        {
-            var products = await _productService.SearchProductsAsync(term);
-            return Ok(new ApiResponse<List<ProductDto>> { Success = true, Data = products });
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Error Search {Term}", term);
-            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور: " + ex.Message });
-        }
-    }
-
+    // ۶. حذف محصول
     [HttpDelete("{id}")]
     [Authorize(Policy = "AdminOnly")]
     public async Task<ActionResult<ApiResponse<object>>> Delete(int id)
@@ -204,15 +111,42 @@ public class ProductController : ControllerBase
         try
         {
             await _productService.DeleteProductAsync(id);
-            return Ok(new ApiResponse<object> { Success = true, Message = "Product deleted" });
-        }
-        catch (NotFoundException ex)
-        {
-            return NotFound(new ApiResponse<object> { Success = false, Message = ex.Message });
+            return Ok(new ApiResponse<object> { Success = true, Message = "محصول حذف شد" });
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error Delete {Id}", id);
+            _logger.LogError(ex, "Error Delete product");
+            return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور" });
+        }
+    }
+
+    // ۷. آپلود عکس تکی
+    [HttpPost("{id}/upload-image")]
+    [Authorize(Policy = "ManagerOnly")]
+    public async Task<ActionResult<ApiResponse<ProductDto>>> UploadImage(int id, IFormFile file)
+    {
+        try
+        {
+            if (file == null || file.Length == 0)
+                return BadRequest(new ApiResponse<object> { Success = false, Message = "فایلی انتخاب نشده است" });
+
+            var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", "products");
+            if (!Directory.Exists(uploadsFolder)) Directory.CreateDirectory(uploadsFolder);
+
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(file.FileName)}";
+            var filePath = Path.Combine(uploadsFolder, fileName);
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            var product = await _productService.UploadProductImageAsync(id, $"/uploads/products/{fileName}");
+            return Ok(new ApiResponse<ProductDto> { Success = true, Data = product, Message = "عکس با موفقیت آپلود شد" });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error uploading image");
             return StatusCode(500, new ApiResponse<object> { Success = false, Message = "خطای سرور" });
         }
     }

@@ -13,9 +13,37 @@ public static class DbInitializer
         var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         var passwordHasher = scope.ServiceProvider.GetRequiredService<IPasswordHasher>();
 
-        // اجرای Migration ها (کامنت شد چون جدول‌ها قبلاً ساخته شده‌اند)
-        // await context.Database.MigrateAsync();
+        // ----------------- حل مشکل اصولی AgeRange و Index قدیمی -----------------
+        // ۱. ساختن ستون AgeRange (اگه نباشه)
+        var addColumnSql = @"
+            IF COL_LENGTH('Inventories', 'AgeRange') IS NULL
+            BEGIN
+                ALTER TABLE Inventories
+                ADD AgeRange NVARCHAR(50) NULL;
+            END
+        ";
+        await context.Database.ExecuteSqlRawAsync(addColumnSql);
 
+        // ۲. حذف ایندکس قدیمیِ مزاحم که نمی‌ذاره چند تا سایز ثبت بشه (حل ارور IX_Inventories_ProductId)
+        var dropIndexSql = @"
+            IF EXISTS (SELECT name FROM sys.indexes WHERE name = N'IX_Inventories_ProductId')
+            BEGIN
+                DROP INDEX IX_Inventories_ProductId ON Inventories;
+            END
+        ";
+        await context.Database.ExecuteSqlRawAsync(dropIndexSql);
+
+        // ۳. ساخت یک ایندکس جدید (ترکیب محصول + رده سنی نباید تکراری بشه، نه فقط محصول)
+        var createNewIndexSql = @"
+            IF NOT EXISTS (SELECT name FROM sys.indexes WHERE name = N'IX_Inventories_Product_AgeRange')
+            BEGIN
+                CREATE UNIQUE NONCLUSTERED INDEX IX_Inventories_Product_AgeRange 
+                ON Inventories(ProductId, AgeRange) 
+                WHERE IsDeleted = 0 AND AgeRange IS NOT NULL;
+            END
+        ";
+        await context.Database.ExecuteSqlRawAsync(createNewIndexSql);
+        // --------------------------------------------------------------------------
 
         if (!await context.Roles.AnyAsync())
         {
@@ -30,15 +58,13 @@ public static class DbInitializer
             await context.SaveChangesAsync();
         }
 
-
         if (!await context.Users.AnyAsync(u => u.PhoneNumber == "09123456789"))
         {
             var adminUser = new User("مدیر سیستم", "09123456789", passwordHasher.HashPassword("Admin@123"));
-            adminUser.VerifyPhone(); // تایید شماره موبایل
+            adminUser.VerifyPhone();
 
             context.Users.Add(adminUser);
             await context.SaveChangesAsync();
-
 
             var adminRole = await context.Roles.FirstOrDefaultAsync(r => r.Name == "Admin");
             if (adminRole != null)
@@ -48,7 +74,6 @@ public static class DbInitializer
                 await context.SaveChangesAsync();
             }
         }
-
 
         if (!await context.Categories.AnyAsync())
         {
