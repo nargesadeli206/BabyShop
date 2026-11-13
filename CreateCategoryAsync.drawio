@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="‫صفحه-1‬" id="90ZajJJeoNKjQD3QqJc1">
+    <mxGraphModel dx="1030" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-11" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="NMykGPfdmIdC7U7YqoNj-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="شروع&lt;div&gt;&lt;span style=&quot;font-size: 10px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; font-style: inherit; font-variant-ligatures: inherit; font-variant-caps: inherit; color: light-dark(rgb(15, 17, 21), rgb(222, 223, 227)); text-align: start;&quot;&gt;CreateCategoryAsync&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="340" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-2" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="NMykGPfdmIdC7U7YqoNj-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-12" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="NMykGPfdmIdC7U7YqoNj-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;دریافت CreateCategoryDto&lt;/div&gt;&lt;div&gt;(Name, Description&lt;/div&gt;&lt;div&gt;ParentId, ImageUrl,&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; DisplayOrder)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="150" x="325" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-13" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="NMykGPfdmIdC7U7YqoNj-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&amp;nbsp;new Category(Name,&lt;/div&gt;&lt;div&gt;Description, ParentId,&lt;/div&gt;&lt;div&gt;ImageUrl, DisplayOrder)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="160" x="320" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-14" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="NMykGPfdmIdC7U7YqoNj-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;CreateCategoryAsync(category)&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="160" x="320" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-15" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="NMykGPfdmIdC7U7YqoNj-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;MapToDto()&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="110" x="345" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-16" edge="1" parent="1" source="NMykGPfdmIdC7U7YqoNj-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="NMykGPfdmIdC7U7YqoNj-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;pre style=&quot;font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; line-height: 22px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; overflow: auto; white-space: pre-wrap; word-break: break-all; padding: 16px; color: rgb(15, 17, 21); text-align: start; margin: 0px !important;&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt; return CategoryDto&lt;/font&gt;&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="40" width="135" x="332.5" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="NMykGPfdmIdC7U7YqoNj-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="355" y="610" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

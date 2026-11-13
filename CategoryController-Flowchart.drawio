@@ -1,0 +1,340 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="‫صفحه-1‬" id="g3GsL-KwE_MSX0FMXa05">
+    <mxGraphModel dx="1873" dy="1022" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-1" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="شروع&lt;div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start;&quot;&gt;&lt;span class=&quot;&quot; style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 16px; font-weight: 600; background-color: rgb(255, 255, 255);&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span&gt;&lt;font&gt;CategoryController&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="814" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;span class=&quot;&quot; style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;HTTP Method + Route برسی&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="206" x="771" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=center;" value="&lt;span style=&quot;font-weight: 600; color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; background-color: rgb(255, 255, 255);&quot;&gt;&lt;span class=&quot;&quot; style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;HTTP Method + Routeبرسی&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="874" x="420" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-5" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;GetMainCategories&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1230" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-7" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;GetBySlug&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1110" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-9" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;GetPaged&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="990" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-11" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;GetAll&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="870" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-13" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Get&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="750" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-15" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-34">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Delete&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="630" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-17" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Update&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-19" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Create&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="390" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-21" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.577;exitY=1.043;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-12" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="880" y="520" as="sourcePoint" />
+            <mxPoint x="930" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-22" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.44;exitY=0.99;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-14" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="880" y="520" as="sourcePoint" />
+            <mxPoint x="930" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-23" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.305;exitY=1.03;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-16" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="880" y="520" as="sourcePoint" />
+            <mxPoint x="930" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-24" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.716;exitY=1.003;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-10" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="870" y="420" as="sourcePoint" />
+            <mxPoint x="920" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-25" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.852;exitY=1.057;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-8" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1060" y="420" as="sourcePoint" />
+            <mxPoint x="1110" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-26" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.988;exitY=1.057;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-6" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="1060" y="420" as="sourcePoint" />
+            <mxPoint x="1110" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-27" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.168;exitY=1.043;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-18" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="520" as="sourcePoint" />
+            <mxPoint x="450" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-28" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-4" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.03;exitY=1.057;exitDx=0;exitDy=0;exitPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-20" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <mxPoint x="400" y="420" as="sourcePoint" />
+            <mxPoint x="450" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-29" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;POST /&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="390" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-31" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-49">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-32" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;PUT /&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-33" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-34" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;DELETE /{id}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="630" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-35" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-53">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-36" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /{id}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="750" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-37" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-38" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="870" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-39" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-40" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /paged&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="990" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-41" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-42" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /slug/{slug}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1110" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-43" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-44" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="Q5iRPKmWSecsUhraFNAE-6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /main&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1230" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-46" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ادمین&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="390" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-48" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-49" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ادمین&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-50" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-51" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ادمین&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="630" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-52" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;عمومی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="750" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-54" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-69">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-55" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;عمومی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="870" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-56" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;عمومی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="990" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-58" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-65">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-59" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;عمومی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1110" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-60" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;عمومی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1230" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-62" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-63" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /main&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1230" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-64" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-99">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-65" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;گرفتن با Slug&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1110" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-66" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;صفحه‌بندی شده&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="990" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-68" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-95">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-69" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;گرفتن همه&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="870" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-70" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-71" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;گرفتن با Id&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="750" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-72" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-73" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;حذف دسته‌بندی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="630" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-74" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ویرایش دسته‌بندی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-76" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="Q5iRPKmWSecsUhraFNAE-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-77" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ایجاد دسته‌بندی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="390" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-78" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="1240" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-79" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="1120" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-80" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="1000" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-81" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="874" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-82" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="520" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-83" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="760" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-84" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="640" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-85" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="50" width="90" x="400" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-86" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-87" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;201 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="390" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-88" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-89" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;201 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="510" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-90" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-91" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-91" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + Message&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="630" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-92" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-93" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-93" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;201 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="750" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-94" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-81">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-95" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + List&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="870" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-96" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-97" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-97" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + Page&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="990" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-98" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-99" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1110" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-100" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="Q5iRPKmWSecsUhraFNAE-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-101" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + List&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="1230" y="730" as="geometry" />
+        </mxCell>
+        <mxCell id="Q5iRPKmWSecsUhraFNAE-102" edge="1" parent="1" source="Q5iRPKmWSecsUhraFNAE-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.521;entryY=-0.06;entryDx=0;entryDy=0;entryPerimeter=0;" target="Q5iRPKmWSecsUhraFNAE-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

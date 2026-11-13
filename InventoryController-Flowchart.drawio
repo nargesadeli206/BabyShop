@@ -1,0 +1,443 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="‫صفحه-1‬" id="8QMb8BjDNJ_GN7oZQYzV">
+    <mxGraphModel dx="2039" dy="661" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start;&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;شروع - درخواست به InventoryController&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="146" x="330" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;بررسی HTTP Method + Route&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="1460" x="-380" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-51" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;POST /&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-439.94" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-66" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;PUT /increase&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-212.06" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;PUT /decrease&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="18.060000000000002" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-103" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /product/{id}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="249.94" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-101" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="430" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-100" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /lowstock&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="570" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-111" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;GET /{id}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="742.5" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-90" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;DELETE /{id}&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="983" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-52" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;برسی موجودی&lt;/font&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-439.94" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-65" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-63">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;برسی موجودی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-212.06" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-74" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-72">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="دریافت کمبودها" vertex="1">
+          <mxGeometry height="50" width="130" x="18.060000000000002" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-102" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="دریافت همه" vertex="1">
+          <mxGeometry height="50" width="130" x="249.94" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-91" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;برسی موجودی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="430" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-98" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;برسی موجودی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="570" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-112" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 14px;&quot;&gt;برسی موجودی&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="742.5" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-89" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-87">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="برسی محصول" vertex="1">
+          <mxGeometry height="50" width="130" x="983" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-121" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="-339.94" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-92" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;GetAllInventoriesAsync&amp;nbsp;&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="430" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-94" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + List&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="438" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-99" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 9px;&quot;&gt;GetLowStockInventoriesAsync&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="570" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-117" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-455.47058823529414" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;ایجاد موجودی برای محصول جدید&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-520" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-45" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-299.94" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-49" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-45" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-48" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-459.94" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-50" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-48" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-43" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start;&quot;&gt;&lt;font&gt;محصول وجود دارد؟&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="-439.94" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-128" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-127">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="-102" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-59" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-62" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-60" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-59" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-61" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-225.06" y="470" />
+              <mxPoint x="-225.06" y="510" />
+              <mxPoint x="-222.06" y="510" />
+            </Array>
+            <mxPoint x="-222" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-62" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-61" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-63" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#0f1115&quot; face=&quot;quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif&quot;&gt;موجودی وجود دارد؟&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="-204.56" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-135" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-67" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-134">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-67" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="130.12" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-68" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170.12" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-69" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-68" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-70" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="7.060000000000002" y="470" />
+              <mxPoint x="7.060000000000002" y="510" />
+              <mxPoint x="10.060000000000002" y="510" />
+            </Array>
+            <mxPoint x="10.120000000000005" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-71" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-70" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-72" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#0f1115&quot; face=&quot;quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif&quot;&gt;موجودی وجود دارد؟&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="33.06" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-141" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-75" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="360" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-76" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-77" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-76" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-78" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="236.94" y="470" />
+              <mxPoint x="236.94" y="510" />
+              <mxPoint x="239.94" y="510" />
+            </Array>
+            <mxPoint x="240" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-79" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-78" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-80" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#0f1115&quot; face=&quot;quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif&quot;&gt;موجودی وجود دارد؟&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="257.44" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-154" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-153">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-82" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="1090.06" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-83" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1130.06" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-84" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-83" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-85" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-87" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="967" y="460" />
+              <mxPoint x="967" y="500" />
+              <mxPoint x="970" y="500" />
+            </Array>
+            <mxPoint x="970.06" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-86" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-85" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-87" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#0f1115&quot; face=&quot;quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif&quot;&gt;موجودی وجود دارد؟&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="987.5" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-149" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="982.294117647059" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-88" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;background-color: light-dark(rgb(255, 255, 255), rgb(18, 18, 18)); color: light-dark(rgb(15, 17, 21), rgb(222, 223, 227)); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start;&quot;&gt;حذف سابقه موجودی&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="90" x="940" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-93" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="82" x="452" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-95" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-96" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-97">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-96" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + List&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="578" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-97" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="82" x="592" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-147" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-104" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;404 Not Found&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="70" x="860.06" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-105" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="900.06" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-106" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-105" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.6181" y="-4" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-107" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-109" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="737" y="460" />
+              <mxPoint x="737" y="500" />
+              <mxPoint x="740" y="500" />
+            </Array>
+            <mxPoint x="740.06" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-108" connectable="0" parent="wxIiYT6iOHMFAw6GOpZJ-107" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.6357" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-109" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;div style=&quot;text-align: start;&quot;&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font color=&quot;#0f1115&quot; face=&quot;quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif&quot;&gt;موجودی وجود دارد؟&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="115" x="757.5" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-144" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="764.5294117647059" y="590" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-110" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;گرفتن موجودی با Id&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="710" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-120" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-119">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-118" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;201 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="90" x="-503" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-119" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="82" x="-423.44000000000005" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-122" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&lt;font style=&quot;font-size: 13px;&quot;&gt;افزایش موجودی (ورود جنس به انبار)&lt;/font&gt;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-262" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-124" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-202" y="570" as="sourcePoint" />
+            <mxPoint x="-202.47058823529414" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-125" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-126" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-127">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-126" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="90" x="-250" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-127" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="82" x="-170.44000000000005" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-130" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;span style=&quot;color: light-dark(rgb(15, 17, 21), rgb(222, 223, 227)); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start;&quot;&gt;کاهش موجودی (فروش محصول)&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="-20" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-131" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="40" y="570" as="sourcePoint" />
+            <mxPoint x="39.529411764705856" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-137" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-133" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-134">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-133" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + DTO&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="80" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-134" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="72" x="60" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-143" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-138" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-138" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start;&quot;&gt;گرفتن موجودی با ProductId&lt;/span&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="210" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-142" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-139" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-139" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="50" width="80" x="235" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-140" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="72" x="300.44" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-148" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-145" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-145" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + DTO /&amp;nbsp;&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="90" x="720" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-146" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="72" x="790" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-155" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="wxIiYT6iOHMFAw6GOpZJ-153">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-151" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;color: rgb(15, 17, 21); font-family: quote-cjk-patch, Inter, system-ui, -apple-system, BlinkMacSystemFont, &amp;quot;Segoe UI&amp;quot;, Roboto, Oxygen, Ubuntu, Cantarell, &amp;quot;Open Sans&amp;quot;, &amp;quot;Helvetica Neue&amp;quot;, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;200 + Message&lt;/span&gt;" vertex="1">
+          <mxGeometry height="40" width="90" x="940" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-153" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="45" width="72" x="1018.06" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="wxIiYT6iOHMFAw6GOpZJ-158" edge="1" parent="1" source="wxIiYT6iOHMFAw6GOpZJ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.534;entryY=-0.066;entryDx=0;entryDy=0;entryPerimeter=0;" target="wxIiYT6iOHMFAw6GOpZJ-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

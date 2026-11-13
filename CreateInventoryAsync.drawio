@@ -1,0 +1,104 @@
+<mxfile host="app.diagrams.net" pages="2">
+  <diagram name="‫صفحه-1‬" id="-IEngY1lX6tsDWPV0UDD">
+    <mxGraphModel dx="1030" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-3" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="شروع&lt;div&gt;&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start; white-space: pre-wrap; background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;CreateInventoryAsync&lt;/font&gt;&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="340" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-6" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;دریافت CreateInventoryDto:&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;ProductId, CurrentStock,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;ReservedStock, MinimumStockLevel,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;MaximumStockLevel, ReorderPoint,&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 11px;&quot;&gt;&amp;nbsp;Location&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="100" width="180" x="310" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-9" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;pre style=&quot;font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; line-height: 22px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; overflow: auto; white-space: pre-wrap; word-break: break-all; padding: 16px; color: rgb(15, 17, 21); text-align: start; margin: 0px !important;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;GetByIdAsync(ProductId)&lt;/font&gt;(بررسی وجود محصول)&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="315" y="310" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-5" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="OdxRuS5VMBgqwMOni5pt-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-10" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="520" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-12" connectable="0" parent="OdxRuS5VMBgqwMOni5pt-10" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="بله" vertex="1">
+          <mxGeometry relative="1" x="-0.3957" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-11" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-13" connectable="0" parent="OdxRuS5VMBgqwMOni5pt-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=14;" value="خیر" vertex="1">
+          <mxGeometry relative="1" x="-0.3395" y="2" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-7" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="محصول وجود دارد؟" vertex="1">
+          <mxGeometry height="80" width="150" x="330" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-29" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="&lt;div&gt;throw NotFound&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;Exception&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="120" x="240" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-22" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;new Inventory(ProductId,&lt;span style=&quot;color: rgb(15, 17, 21); font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; text-align: start; white-space: pre-wrap; background-color: transparent;&quot;&gt;CurrentStock, ReservedStock)&lt;/span&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-23" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;div&gt;بررسی مقادیر اختیاری:&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;if MinimumStockLevel&amp;gt;0 → Set&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;if MaximumStockLevel&amp;gt;0 → Set&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp;if ReorderPoint&amp;gt;0 → Set&lt;/div&gt;&lt;div&gt;&amp;nbsp;if Location!=null → Set&lt;/div&gt;" vertex="1">
+          <mxGeometry height="105" width="180" x="430" y="585" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-24" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;pre style=&quot;font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 13px; line-height: 22px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; overflow: auto; white-space: pre-wrap; word-break: break-all; padding: 16px; color: rgb(15, 17, 21); text-align: start; margin: 0px !important;&quot;&gt;AddAsync(inventory)&lt;br&gt;(ذخیره در دیتابیس)&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-25" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="OdxRuS5VMBgqwMOni5pt-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;pre style=&quot;font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 13px; line-height: 22px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; overflow: auto; white-space: pre-wrap; word-break: break-all; padding: 16px; color: rgb(15, 17, 21); text-align: start; margin: 0px !important;&quot;&gt;MapToDto(created)&lt;br&gt;(تبدیل به DTO)&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="790" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-27" edge="1" parent="1" source="OdxRuS5VMBgqwMOni5pt-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="OdxRuS5VMBgqwMOni5pt-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;pre style=&quot;font-style: normal; font-variant: normal; font-size-adjust: none; font-language-override: normal; font-kerning: auto; font-optical-sizing: auto; font-feature-settings: normal; font-variation-settings: normal; font-stretch: normal; font-size: 13px; line-height: 22px; font-family: Menlo, Monaco, Consolas, &amp;quot;Cascadia Mono&amp;quot;, &amp;quot;Ubuntu Mono&amp;quot;, &amp;quot;DejaVu Sans Mono&amp;quot;, &amp;quot;Liberation Mono&amp;quot;, &amp;quot;JetBrains Mono&amp;quot;, &amp;quot;Fira Code&amp;quot;, Cousine, &amp;quot;Roboto Mono&amp;quot;, &amp;quot;Courier New&amp;quot;, Courier, sans-serif, system-ui; overflow: auto; white-space: pre-wrap; word-break: break-all; padding: 16px; color: rgb(15, 17, 21); text-align: start; margin: 0px !important;&quot;&gt;return InventoryDto&lt;/pre&gt;" vertex="1">
+          <mxGeometry height="60" width="180" x="430" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-26" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="40" width="106" x="467" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="OdxRuS5VMBgqwMOni5pt-28" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="پایان" vertex="1">
+          <mxGeometry height="40" width="106" x="247" y="560" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="P-NS5HNheXYJb8eBFZ5C" name="‫صفحه-2‬">
+    <mxGraphModel dx="1030" dy="562" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
